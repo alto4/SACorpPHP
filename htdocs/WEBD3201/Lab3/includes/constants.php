@@ -27,3 +27,6 @@ define("MAX_PASSWORD_LENGTH", 75);
 define("MAX_FIRST_NAME_LENGTH", 40);
 define("MAX_LAST_NAME_LENGTH", 50);
 define("MIN_PHONE_NUM_LENGTH", 10);
+
+// Pagination and Formatting Constants
+define("ROWS_PER_PAGE", 10);

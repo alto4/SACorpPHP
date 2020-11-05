@@ -150,6 +150,10 @@ function display_form($elements)
 // show_table function - queries a table from the database using a prepared statement and displays are specified cells in a table
 function display_table($dataFields, $data, $numOfRows)
 {
+  // Pagination variable declarations
+  isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
+  $startingRecord = ($page - 1) * ROWS_PER_PAGE;
+  $numOfPages = ceil($numOfRows / ROWS_PER_PAGE);
 
   echo '<div class="table-responsive">
           <table class="table table-striped table-sm">
@@ -161,6 +165,8 @@ function display_table($dataFields, $data, $numOfRows)
   echo '      </tr>
               </thead>
               <tbody>';
+
+
   // Populate each new row with corresponding data from table
   $keys = array_keys($dataFields);
 
@@ -180,4 +186,8 @@ function display_table($dataFields, $data, $numOfRows)
 
   echo      '</tbody>
           </table>';
+
+  for ($i = 1; $i <= $numOfPages; $i++) {
+    echo '<a class="h1 text-dark"href="pagination.php/page="' . $i . '" >' . $i . '</a>';
+  }
 }
