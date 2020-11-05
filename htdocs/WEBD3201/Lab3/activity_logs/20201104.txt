@@ -1,0 +1,4 @@
+attemped sign-in without a valid email event at 18:29:21 20201104. User unknown attemped sign-in without a valid email.
+successful sign-in event at 18:30:52 20201104. User scottalton@gmail.com successful sign-in.
+sign-out event at 18:30:54 20201104. User scottalton@gmail.com sign-out.
+successful sign-in event at 18:31:00 20201104. User julio18@test.ca successful sign-in.

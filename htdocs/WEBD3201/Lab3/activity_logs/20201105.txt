@@ -1,0 +1,8 @@
+successful sign-in event at 15:38:23 20201105. User scottalton@gmail.com successful sign-in.
+successfully created as a client event at 15:42:45 20201105. User Malkie Epouvontale successfully created as a client.
+successful sign-in event at 16:40:16 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 16:40:26 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:40:33 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 16:50:51 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 16:50:52 20201105. User scottalton@gmail.com successful sign-in.
+successfully created as a salesperson event at 16:57:20 20201105. User Donald Bad successfully created as a salesperson.
