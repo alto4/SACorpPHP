@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $salesperonId = "";
     $email  = "";
     $phone = "";
-
+    $logo = "";
     // Validation output
     $output = " ";
 }
@@ -44,6 +44,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email  = trim($_POST["email"]);
     $phone = trim($_POST['phone']);
+    $logo = trim($_POST["logo"]);
     $output = "";
 
     // Save the function that connects to the database as a variable
@@ -146,108 +147,119 @@ if ($output == "") {
         $lastName = "";
         $email  = "";
         $phone = "";
+        $logo = "";
     }
 }
 ?>
-<h1 class="h2">Clients</h1>
+<h1>New Clients</h1>
 <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
-<h6>Please enter the details of all new clients in the form below.</h6>
-<h5 class="text-danger"><?php echo $output; ?></h5>
+<p class="lead">Please enter the details of all new clients in the form below.</h6>
+    <h5 class="text-danger"><?php echo $output; ?></h5>
 
-<?php
-if ($_SESSION['type'] == "s") {
-    // Client Input Form
-    display_form(
-        array(
+    <?php
+    if ($_SESSION['type'] == "s") {
+        // Client Input Form
+        display_form(
             array(
-                "type" => "text",
-                "name" => "firstName",
-                "value" => $firstName,
-                "label" => "First Name",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "text",
-                "name" => "lastName",
-                "value" => $lastName,
-                "label" => "Last Name",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "select",
-                "name" => "salesperson",
-                "value" => "12",
-                "label" => "Salesperson",
-                "isDropdown" => true
-            ),
-            array(
-                "type" => "email",
-                "name" => "email",
-                "value" => $email,
-                "label" => "Email Address",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "number",
-                "name" => "phone",
-                "value" => $phone,
-                "label" => "Phone Number",
-                "isDropdown" => false
+                array(
+                    "type" => "text",
+                    "name" => "firstName",
+                    "value" => $firstName,
+                    "label" => "First Name",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "text",
+                    "name" => "lastName",
+                    "value" => $lastName,
+                    "label" => "Last Name",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "select",
+                    "name" => "salesperson",
+                    "value" => "12",
+                    "label" => "Salesperson",
+                    "isDropdown" => true
+                ),
+                array(
+                    "type" => "email",
+                    "name" => "email",
+                    "value" => $email,
+                    "label" => "Email Address",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "number",
+                    "name" => "phone",
+                    "value" => $phone,
+                    "label" => "Phone Number",
+                    "isDropdown" => false
+                )
             )
-        )
-    );
-} else {
-    // Set salesperson to logged in user
-    $salesperonId = $_SESSION['id'];
+        );
+    } else {
+        // Set salesperson to logged in user
+        $salesperonId = $_SESSION['id'];
 
-    // Client Input Form if salesperson logged in
-    display_form(
-        array(
+        // Client Input Form if salesperson logged in
+        display_form(
             array(
-                "type" => "text",
-                "name" => "firstName",
-                "value" => $firstName,
-                "label" => "First Name",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "text",
-                "name" => "lastName",
-                "value" => $lastName,
-                "label" => "Last Name",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "email",
-                "name" => "email",
-                "value" => $email,
-                "label" => "Email Address",
-                "isDropdown" => false
-            ),
-            array(
-                "type" => "number",
-                "name" => "phone",
-                "value" => $phone,
-                "label" => "Phone Number",
-                "isDropdown" => false
+                array(
+                    "type" => "text",
+                    "name" => "firstName",
+                    "value" => $firstName,
+                    "label" => "First Name",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "text",
+                    "name" => "lastName",
+                    "value" => $lastName,
+                    "label" => "Last Name",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "email",
+                    "name" => "email",
+                    "value" => $email,
+                    "label" => "Email Address",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "number",
+                    "name" => "phone",
+                    "value" => $phone,
+                    "label" => "Phone Number",
+                    "isDropdown" => false
+                ),
+                array(
+                    "type" => "file",
+                    "name" => "logo",
+                    "value" => $logo,
+                    "label" => "Client Logo",
+                    "isDropdown" => false
+                )
             )
-        )
+        );
+    }
+    ?>
+    <h1>Active Clients</h1>
+    <?php
+    display_table(
+        array(
+            "id" => "ID",
+            "emailaddress" => "Email Address",
+            "firstname" => "First Name",
+            "lastname" => "Last Name",
+            "phonenumber" => "Phone Number"
+        ),
+        client_select_all(),
+        client_count(),
+        1
     );
-}
+    ?>
 
-display_table(
-    array(
-        "id" => "ID",
-        "emailaddress" => "Email Address",
-        "firstname" => "First Name",
-        "lastname" => "Last Name",
-        "phonenumber" => "Phone Number"
-    ),
-    client_select_all(),
-    client_count()
-);
-?>
-
-<?php
-include "./includes/footer.php";
-?>
+    <?php
+    include "./includes/footer.php";
+    ?>

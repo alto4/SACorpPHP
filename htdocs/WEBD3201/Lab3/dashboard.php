@@ -14,24 +14,11 @@ if (!$_SESSION) {
 }
 
 ?>
-<h1 class="h2">Dashboard</h1>
+<h1>Dashboard</h1>
 <div class="container d-flex justify-content-center w-100">
     <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
 </div>
 
-<div class="btn-toolbar mb-2 mb-md-0">
-    <div class="btn-group mr-2">
-        <button class="btn btn-sm btn-outline-secondary">Share</button>
-        <button class="btn btn-sm btn-outline-secondary">Export</button>
-    </div>
-    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-        <span data-feather="calendar"></span>
-        This week
-    </button>
-</div>
-</div>
-
-<h2>Section title</h2>
 <p class="lead">Please see the sidebar to your left for a list of options you have access to.</p>
 
 <?php

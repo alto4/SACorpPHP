@@ -175,10 +175,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<h2 class="py-3">Salespeople</h2>
+<h1 class="py-3">New Salespeople</h1>
 
-<h6 class="w-75 mx-auto">When a new salesperson is hired, please ensure that they are promptly entered as a user in the system. Salespeople cannot enter other salespeople,
-    however they are granted permission to create new clients and calls in the our records.</h6>
+<p class="w-75 lead mx-auto">When a new salesperson is hired, please ensure that they are promptly entered as a user in the system. Salespeople cannot enter other salespeople,
+    however they are granted permission to create new clients and calls in the our records.</p>
 
 
 
@@ -234,7 +234,11 @@ display_form(
         )
     )
 );
+?>
 
+<h1>Active Salespeople</h1>
+
+<?php
 display_table(
     array(
         "id" => "ID",
@@ -245,7 +249,8 @@ display_table(
         "phoneext" => "Phone Ext."
     ),
     salespeople_select_all(),
-    salespeople_count()
+    salespeople_count(),
+    1
 );
 ?>
 <?php

@@ -131,6 +131,8 @@ function display_form($elements)
       echo '</select>';
 
       // If the element is not flagged to be a dropdown, generate a standard input element 
+    } else if ($type == "file") {
+      echo '<input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>';
     } else {
       echo '  <input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>
       </div>
@@ -147,37 +149,43 @@ function display_form($elements)
 
 // LAB #3 FUNCTIONS
 
+// NEED TO GET PAGINATION BUTTONS WORKING!!!!!
 // show_table function - queries a table from the database using a prepared statement and displays are specified cells in a table
-function display_table($dataFields, $data, $numOfRows)
+function display_table($dataFields, $data, $numOfRows, $page)
 {
   // Pagination variable declarations
-  isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
+  if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+  } else {
+    // set proper default value if it was not set
+    $page = 1;
+  }
+
   $startingRecord = ($page - 1) * ROWS_PER_PAGE;
   $numOfPages = ceil($numOfRows / ROWS_PER_PAGE);
 
-  echo '<div class="table-responsive">
-          <table class="table table-striped table-sm">
+  echo '<div class="table-responsive w-75 mx-auto py-3">
+          <table class="table table-dark table-bordered table-sm">
               <thead>
               <tr>';
   foreach ($dataFields as $key) {
-    echo "<th>$key</th>";
+    echo '<th class="py-2">' . $key . '</th>';
   }
   echo '      </tr>
               </thead>
               <tbody>';
 
-
   // Populate each new row with corresponding data from table
   $keys = array_keys($dataFields);
 
-  for ($i = 0; $i < count($data); $i++) {
+  for ($i = $startingRecord; $i < $startingRecord + ROWS_PER_PAGE; $i++) {
     $row = $data[$i];
     echo "<tr>";
 
     for ($j = 0; $j < count($keys); $j++) {
       $col = $keys[$j];
-      echo "
-          <td>" . $row[$col] . "</td>";
+      echo '
+          <td class="py-2">' . $row[$col] . "</td>";
     }
 
     echo "</tr>";
@@ -188,6 +196,6 @@ function display_table($dataFields, $data, $numOfRows)
           </table>';
 
   for ($i = 1; $i <= $numOfPages; $i++) {
-    echo '<a class="h1 text-dark"href="pagination.php/page="' . $i . '" >' . $i . '</a>';
+    echo '<a class="btn btn-dark mx-1" href="?page=' . $i . '" >' . $i . '</a>';
   }
 }
