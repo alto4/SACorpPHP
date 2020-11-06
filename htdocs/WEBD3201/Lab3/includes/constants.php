@@ -30,3 +30,6 @@ define("MIN_PHONE_NUM_LENGTH", 10);
 
 // Pagination and Formatting Constants
 define("ROWS_PER_PAGE", 10);
+
+// File Upload Constants
+define("MAX_FILE_SIZE", 3000000);

@@ -26,3 +26,5 @@ successful sign-in event at 19:55:33 20201105. User scottalton@gmail.com success
 sign-out event at 20:24:53 20201105. User scottalton@gmail.com sign-out.
 unsuccessful login due to bad password event at 20:25:01 20201105. User julio18@test.ca unsuccessful login due to bad password.
 successful sign-in event at 20:25:09 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 21:09:43 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 21:09:44 20201105. User scottalton@gmail.com successful sign-in.

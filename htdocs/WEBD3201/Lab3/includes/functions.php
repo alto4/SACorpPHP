@@ -84,7 +84,7 @@ function display_form($elements)
 {
   // Start of the generated form
   echo '
-    <form class="input-form rounded bg-success p-4 mb-5" style="width:400px; align-self: center; margin: auto;"' . ' method="POST" >
+    <form enctype="multipart/form-data" class="input-form rounded bg-success p-4 mb-5" style="width:400px; align-self: center; margin: auto;"' . ' method="POST" >
   ';
 
   // Start loop for each element (nested array) to generate individual form elements
@@ -100,7 +100,7 @@ function display_form($elements)
     // Generate label for form input element
     echo '
       <div class="form-group text-left">
-          <label class="h5" for="inputEmail4">' . $label . ':</label>
+          <label class="h5">' . $label . ':</label>
         ';
 
     // Check for flag that determines if a form element needs to be processed as a dropdown 
@@ -132,7 +132,7 @@ function display_form($elements)
 
       // If the element is not flagged to be a dropdown, generate a standard input element 
     } else if ($type == "file") {
-      echo '<input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>';
+      echo '<input type=' . $type . ' class="form-control" id="uploadLogoId "name=' . $name . ' value=' . $value . '>';
     } else {
       echo '  <input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>
       </div>
