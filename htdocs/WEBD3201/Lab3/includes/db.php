@@ -67,14 +67,18 @@ function update_last_login($id)
 }
 
 // LAB #3 DATABASE FUNCTION
-function client_select_all()
+function client_select_all($salespersonId)
 {
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
-  $clients_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients");
-  $result = pg_execute($conn, "client_select_stmt", array());
-
+  if ($salespersonId == "all") {
+    $clients_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients");
+    $result = pg_execute($conn, "client_select_stmt", array());
+  } else {
+    $clients_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients WHERE salespersonId = " . $salespersonId);
+    $result = pg_execute($conn, "client_select_stmt", array());
+  }
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if ((count($rows)) >= 1) {
@@ -121,14 +125,19 @@ function calls_select_all()
 }
 
 // client_count prepared - returns the number of entries in the clients table
-function client_count()
+function client_count($salespersonId = "all")
 {
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
-  $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients");
-  $result = pg_execute($conn, "client_count_stmt", array());
-
+  if ($salespersonId == "all") {
+    // Prepared statement for selecting a user from the database filtered by salesperson ID
+    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients");
+    $result = pg_execute($conn, "client_count_stmt", array());
+  } else {
+    // Prepared statement for selecting a user from the database filtered by salesperson ID
+    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = 1");
+    $result = pg_execute($conn, "client_count_stmt", array());
+  }
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if (pg_num_rows($result) >= 1) {
     return pg_num_rows($result);

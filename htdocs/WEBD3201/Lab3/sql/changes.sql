@@ -1,0 +1,3 @@
+ALTER TABLE clients 
+ADD COLUMN logo VARCHAR
+(255);

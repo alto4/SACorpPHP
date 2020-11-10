@@ -184,10 +184,14 @@ function display_table($dataFields, $data, $numOfRows, $page)
 
     for ($j = 0; $j < count($keys); $j++) {
       $col = $keys[$j];
-      echo '
+      //echo "<h1>Printing Key: $keys[$j]</h1>";
+      if ($keys[$j] == "logo_path" && $row[$col] != "") {
+        echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
+      } else {
+        echo '
           <td class="py-2">' . $row[$col] . "</td>";
+      }
     }
-
     echo "</tr>";
   }
 

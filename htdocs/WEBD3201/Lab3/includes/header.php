@@ -113,6 +113,15 @@
                 </li>
               ';
             }
+
+            // If the user is signed in, allow them access to the change password page
+            if ($_SESSION) {
+              echo '
+                <li class="nav-item my-2">
+                  <a class="nav-link btn btn-success mx-3 text-center round" href="./change-password.php">Change Password</a>
+                </li>
+              ';
+            }
             ?>
           </ul>
         </div>

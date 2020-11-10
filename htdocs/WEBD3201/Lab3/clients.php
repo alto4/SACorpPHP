@@ -67,7 +67,8 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $output .= "Only upload JPG, JPEG, or PJPEG file types may be used for the logo.";
     } else {
         // MOVE UPLOADED FILE
-        move_uploaded_file($_FILES['logo']['tmp_name'], "./logos/newlogo.jpeg");
+        $logoUrl = "./logos/logo-client-$phone.jpg";
+        move_uploaded_file($_FILES['logo']['tmp_name'], $logoUrl);
     }
 
     // FIRST NAME VALIDATIONS
@@ -141,13 +142,15 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // If there are no validation or errors and all input has been validated, proceed to add client information to the database to complete the registration process
 if ($output == "") {
-    $sql = "INSERT INTO clients(FirstName, LastName, SalespersonId, EmailAddress, PhoneNumber, Type) VALUES (
+    echo "<h1>Logo URL: $logoUrl</h1>";
+    $sql = "INSERT INTO clients(FirstName, LastName, SalespersonId, EmailAddress, PhoneNumber, Type, logo_path) VALUES (
             '$firstName',
             '$lastName',
             '$salespersonId',
             '$email',
             '$phone',
-            'c'
+            'c',
+            '$logoUrl'
         );
     ";
 
@@ -217,7 +220,8 @@ if ($output == "") {
                     "value" => $phone,
                     "label" => "Phone Number",
                     "isDropdown" => false
-                )
+                ),
+
             )
         );
     } else {
@@ -274,10 +278,11 @@ if ($output == "") {
             "emailaddress" => "Email Address",
             "firstname" => "First Name",
             "lastname" => "Last Name",
-            "phonenumber" => "Phone Number"
+            "phonenumber" => "Phone Number",
+            "logo_path" => "Logo"
         ),
-        client_select_all(),
-        client_count(),
+        client_select_all("all"),
+        client_count("all"),
         1
     );
     ?>
