@@ -1,0 +1,9 @@
+successful sign-in event at 15:09:50 20201112. User scottalton@gmail.com successful sign-in.
+sign-out event at 15:10:02 20201112. User scottalton@gmail.com sign-out.
+successful sign-in event at 15:10:16 20201112. User scottalton@gmail.com successful sign-in.
+sign-out event at 15:13:40 20201112. User scottalton@gmail.com sign-out.
+successful sign-in event at 15:13:53 20201112. User julio18@test.ca successful sign-in.
+sign-out event at 15:39:28 20201112. User julio18@test.ca sign-out.
+successful sign-in event at 15:44:59 20201112. User scottalton@gmail.com successful sign-in.
+sign-out event at 16:09:32 20201112. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:09:34 20201112. User scottalton@gmail.com successful sign-in.

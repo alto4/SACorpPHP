@@ -148,8 +148,6 @@ function display_form($elements)
 }
 
 // LAB #3 FUNCTIONS
-
-// NEED TO GET PAGINATION BUTTONS WORKING!!!!!
 // show_table function - queries a table from the database using a prepared statement and displays are specified cells in a table
 function display_table($dataFields, $data, $numOfRows, $page)
 {
@@ -163,6 +161,7 @@ function display_table($dataFields, $data, $numOfRows, $page)
 
   $startingRecord = ($page - 1) * ROWS_PER_PAGE;
   $numOfPages = ceil($numOfRows / ROWS_PER_PAGE);
+  $rowsOnLastPage = $numOfRows % ROWS_PER_PAGE;
 
   echo '<div class="table-responsive w-75 mx-auto py-3">
           <table class="table table-dark table-bordered table-sm">
@@ -178,26 +177,46 @@ function display_table($dataFields, $data, $numOfRows, $page)
   // Populate each new row with corresponding data from table
   $keys = array_keys($dataFields);
 
-  for ($i = $startingRecord; $i < $startingRecord + ROWS_PER_PAGE; $i++) {
-    $row = $data[$i];
-    echo "<tr>";
+  if ($page == $numOfPages) {
+    for ($i = $startingRecord; $i < $startingRecord + $rowsOnLastPage; $i++) {
+      $row = $data[$i];
+      echo "<tr>";
 
-    for ($j = 0; $j < count($keys); $j++) {
-      $col = $keys[$j];
-      //echo "<h1>Printing Key: $keys[$j]</h1>";
-      if ($keys[$j] == "logo_path" && $row[$col] != "") {
-        echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
-      } else {
-        echo '
-          <td class="py-2">' . $row[$col] . "</td>";
+      for ($j = 0; $j < count($keys); $j++) {
+        $col = $keys[$j];
+        //echo "<h1>Printing Key: $keys[$j]</h1>";
+        if ($keys[$j] == "logo_path" && $row[$col] != "") {
+          echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
+        } else {
+          echo '
+            <td class="py-2">' . $row[$col] . "</td>";
+        }
       }
+      echo "</tr>";
     }
-    echo "</tr>";
+  } else {
+
+    for ($i = $startingRecord; $i < $startingRecord + ROWS_PER_PAGE; $i++) {
+      $row = $data[$i];
+      echo "<tr>";
+
+      for ($j = 0; $j < count($keys); $j++) {
+        $col = $keys[$j];
+        //echo "<h1>Printing Key: $keys[$j]</h1>";
+        if ($keys[$j] == "logo_path" && $row[$col] != "") {
+          echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
+        } else {
+          echo '
+          <td class="py-2">' . $row[$col] . "</td>";
+        }
+      }
+      echo "</tr>";
+    }
   }
 
-
   echo      '</tbody>
-          </table>';
+          </table>
+          </div>';
 
   for ($i = 1; $i <= $numOfPages; $i++) {
     echo '<a class="btn btn-dark mx-1" href="?page=' . $i . '" >' . $i . '</a>';
