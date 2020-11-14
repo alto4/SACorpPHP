@@ -1,0 +1,78 @@
+successful sign-in event at 08:30:59 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:31:07 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:31:12 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:32:10 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:32:15 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 08:32:35 20201113. User julio18@test.ca sign-out.
+attemped sign-in without a valid email event at 08:32:46 20201113. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:32:56 20201113. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:33:01 20201113. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:33:08 20201113. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:33:15 20201113. User unknown attemped sign-in without a valid email.
+successful sign-in event at 08:33:18 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:33:29 20201113. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 08:33:32 20201113. User unknown attemped sign-in without a valid email.
+successful sign-in event at 08:33:54 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:34:17 20201113. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 08:34:20 20201113. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:37:27 20201113. User unknown attemped sign-in without a valid email.
+successful sign-in event at 08:38:07 20201113. User al@gmail.com successful sign-in.
+sign-out event at 08:41:34 20201113. User al@gmail.com sign-out.
+successful sign-in event at 08:41:41 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:41:49 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:41:59 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 08:42:54 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 08:42:55 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:43:01 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:43:12 20201113. User julio18@test.ca successful sign-in.
+attemped sign-in without a valid email event at 08:50:14 20201113. User unknown attemped sign-in without a valid email.
+successful sign-in event at 08:50:16 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:50:23 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:50:29 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 08:52:21 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 08:52:22 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:52:30 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:52:36 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 08:58:15 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 08:58:17 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:58:29 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:58:34 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 09:00:49 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 09:01:00 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 09:01:09 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 09:01:12 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:02:56 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:03:02 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 09:03:57 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 09:03:58 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:04:14 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:04:17 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:04:19 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:04:51 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:04:58 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:07:28 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:07:35 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:07:37 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:07:39 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:07:45 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 09:12:39 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 09:13:40 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:13:44 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:13:55 20201113. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 09:14:12 20201113. User julio18@test.ca successful sign-in.
+successful sign-in event at 09:14:25 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:14:27 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:33:25 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:33:30 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:37:56 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:37:58 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:38:11 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:38:26 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:38:31 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 09:45:41 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 09:45:47 20201113. User julio18@test.ca successful sign-in.
+sign-out event at 10:02:52 20201113. User julio18@test.ca sign-out.
+successful sign-in event at 10:02:58 20201113. User julio18@test.ca successful sign-in.
+successful sign-in event at 11:37:15 20201113. User scottalton@gmail.com successful sign-in.
+sign-out event at 11:37:21 20201113. User scottalton@gmail.com sign-out.
+successful sign-in event at 11:37:25 20201113. User julio18@test.ca successful sign-in.

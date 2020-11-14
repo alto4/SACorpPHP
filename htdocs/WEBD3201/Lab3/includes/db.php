@@ -135,7 +135,8 @@ function client_count($salespersonId = "all")
     $result = pg_execute($conn, "client_count_stmt", array());
   } else {
     // Prepared statement for selecting a user from the database filtered by salesperson ID
-    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = 1");
+    echo "<h1>SALESPERSOM ID: $salespersonId</h1>";
+    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = $salespersonId");
     $result = pg_execute($conn, "client_count_stmt", array());
   }
   // Check for a result after querying database and if one exists, save it as an array to return user data

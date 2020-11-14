@@ -224,6 +224,21 @@ if ($output == "") {
 
             )
         );
+        echo '<h1>Active Clients</h1>';
+
+        display_table(
+            array(
+                "id" => "ID",
+                "emailaddress" => "Email Address",
+                "firstname" => "First Name",
+                "lastname" => "Last Name",
+                "phonenumber" => "Phone Number",
+                "logo_path" => "Logo"
+            ),
+            client_select_all("all"),
+            client_count("all"),
+            1
+        );
     } else {
         // Set salesperson to logged in user
         $salesperonId = $_SESSION['id'];
@@ -268,24 +283,24 @@ if ($output == "") {
                 )
             )
         );
+        echo '<h1>Active Clients</h1>';
+
+        display_table(
+            array(
+                "id" => "ID",
+                "emailaddress" => "Email Address",
+                "firstname" => "First Name",
+                "lastname" => "Last Name",
+                "phonenumber" => "Phone Number",
+                "logo_path" => "Logo"
+            ),
+            client_select_all(27),
+            client_count(27),
+            1
+        );
     }
     ?>
-    <h1>Active Clients</h1>
-    <?php
-    display_table(
-        array(
-            "id" => "ID",
-            "emailaddress" => "Email Address",
-            "firstname" => "First Name",
-            "lastname" => "Last Name",
-            "phonenumber" => "Phone Number",
-            "logo_path" => "Logo"
-        ),
-        client_select_all("all"),
-        client_count("all"),
-        1
-    );
-    ?>
+
 
     <?php
     include "./includes/footer.php";

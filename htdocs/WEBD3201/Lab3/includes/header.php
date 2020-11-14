@@ -77,16 +77,25 @@
             <li class="nav-item">
               <a class="nav-link btn btn-success mx-3 mb-2 text-center round" href="./index.php">Home</a>
             </li>
-            <li class="nav-item my-2 ">
-              <a class="nav-link btn btn-success mx-3 text-center round" href="dashboard.php">
-                <?php if ($_SESSION) {
-                  echo "Dashboard";
-                } else {
-                  echo "Sign-in";
-                }; ?>
-              </a>
-            </li>
+
             <?php
+            // If the user is signed, give them the option to navigate to the dashboard page
+            if (!$_SESSION) {
+              echo '
+              <li class="nav-item my-2">
+                <a class="nav-link btn btn-success mx-3 text-center round" href="sign-in.php">Sign In</a>
+              </li>
+            ';
+            }
+            // If the user is signed, give them the option to navigate to the dashboard page
+            if ($_SESSION) {
+              echo '
+                <li class="nav-item my-2">
+                  <a class="nav-link btn btn-success mx-3 text-center round" href="dashboard.php">Dashboard</a>
+                </li>
+              ';
+            }
+
             // If the user is signed in as an administrator, give them the option to navigate to the salespeople page
             if ($_SESSION && $_SESSION['type'] == "s") {
               echo '
