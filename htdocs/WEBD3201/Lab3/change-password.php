@@ -28,17 +28,15 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $newPassword = trim($_POST["password"]);
   $passwordConfirm  = trim($_POST["confirm"]);
 
-  // Update password in the users table
-  $sql = "UPDATE users
-          SET password = '$newPassword' 
-          WHERE emailAddress = '$email'
-    ";
+  // PASSWORD VALIDATIONS
+  // Confirm that new password entries match
 
-  $conn = db_connect();
-  $result = pg_query($conn, $sql);
+  // Confirm that password is at least 3 characters in length
+  
+  $result = user_update_password($email, $newPassword);
 
   // If any issues arise with entering the record into the calls database, display a notice of the failure
-  if (!$result) {
+  if ($result == false) {
     $output .= "Sorry, this entry failed to be updated in our records.";
   } else {
     // If the query produces a result, flash a message declaring the successful creation of the call record

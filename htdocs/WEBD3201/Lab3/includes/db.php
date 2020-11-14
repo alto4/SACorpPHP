@@ -288,3 +288,29 @@ function user_create($firstName, $lastName, $email, $password, $phone, $extensio
 
   return false;
 }
+
+// user_update_password prepared statement
+function user_update_password($email, $newPassword) 
+{
+  $conn = db_connect();
+  // Prepared statement for creating updated password in database after encyption
+  $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", $sql = "      
+    UPDATE users
+    SET password = '$newPassword' 
+    WHERE emailAddress = '$email';
+  ");
+
+  $result = pg_execute($conn, "user_update_password_stmt", array());
+
+  if($result) {
+    return true;
+  } 
+
+  return false;
+}
+
+
+
+
+
+
