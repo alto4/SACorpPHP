@@ -13,6 +13,9 @@ if ($_SESSION['type'] != "a") {
     setMessage($output, "success");
 
     redirect("sign-in.php");
+} else {
+    $salespersonId = $_SESSION['id'];
+    echo "<h1>Salesperson ID: $salespersonId</h1>";
 }
 
 // Form submission logic
@@ -62,44 +65,44 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <p class="w-75 lead mx-auto">Please enter the details of any customer calls in the form below. Each salesperson assigned to a particular customer is responsible for handling their customer's inquiry.</h6>
 
-<h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
-<?php
-display_form(
-    array(
+    <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
+    <?php
+    display_form(
         array(
-            "type" => "select",
-            "name" => "client",
-            "value" => "",
-            "label" => "Client",
-            "isDropdown" => true
-        ),
-        array(
-            "type" => "reason",
-            "name" => "reason",
-            "value" => "",
-            "label" => "Reason for Inquiry",
-            "isDropdown" => false
+            array(
+                "type" => "select",
+                "name" => "client",
+                "value" => "",
+                "label" => "Client",
+                "isDropdown" => true
+            ),
+            array(
+                "type" => "reason",
+                "name" => "reason",
+                "value" => "",
+                "label" => "Reason for Inquiry",
+                "isDropdown" => false
+            )
         )
-    )
-);
-?>
+    );
+    ?>
 
-<h1>Record of Calls</h1>
+    <h1>Record of Calls</h1>
 
-<?php
-display_table(
-    array(
-        "id" => "ID",
-        "clientid" => "Client Id",
-        "date" => "Date",
-        "reason" => "Reason for Inquiry"
-    ),
-    calls_select_all(),
-    calls_count(),
-    1
-);
-?>
+    <?php
+    display_table(
+        array(
+            "id" => "ID",
+            "clientid" => "Client Id",
+            "date" => "Date",
+            "reason" => "Reason for Inquiry"
+        ),
+        calls_select_all($salespersonId),
+        calls_count($salespersonId),
+        1
+    );
+    ?>
 
-<?php
-include "./includes/footer.php";
-?>
+    <?php
+    include "./includes/footer.php";
+    ?>

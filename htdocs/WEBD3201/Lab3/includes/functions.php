@@ -109,16 +109,18 @@ function display_form($elements)
       // Generate the salespeople from the database as select options if that is the name passed in to the element
       if ($name == "salesperson") {
         $table = "salespeople";
+        $sql = "SELECT Id, FirstName, LastName FROM $table";
         echo '<select name="salespersonId" class="d-block w-100 p-2 form-control my-3">';
-        // Generate the clients from the database as select options if that is the name passed in to the element
-      } else if ($name == "client") {
+        // Generate the clients from the database as select options if salesperson is logged in by filtering only their clients
+      } else if ($name == "client" && $_SESSION['type'] == "a") {
         $table = "clients";
+        $SalespersonId = $_SESSION['id'];
+        $sql = "SELECT Id, FirstName, LastName FROM $table WHERE SalespersonId = $SalespersonId";
         echo '<select name="client" class="d-block w-100 p-2 form-control my-3">';
       }
 
       // Query the database for all salespeople or clients to populate dropdown select options
       $conn = db_connect();
-      $sql = "SELECT Id, FirstName, LastName FROM $table";
       $result = pg_query($conn, $sql);
 
       // Populate the option elements with the first and last name of targetted table, and set each elements value to their 

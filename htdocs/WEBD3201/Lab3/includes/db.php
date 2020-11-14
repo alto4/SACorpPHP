@@ -107,14 +107,18 @@ function salespeople_select_all()
 }
 
 // calls_select_all prepared statement 
-function calls_select_all()
+function calls_select_all($salespersonId)
 {
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
-  $calls_select_stmt = pg_prepare($conn, "calls_select_stmt", "SELECT * FROM calls");
+  $calls_select_stmt = pg_prepare($conn, "calls_select_stmt", "
+    SELECT calls.Id, calls.ClientId, calls.Date, calls.Reason, clients.SalespersonID 
+    FROM calls 
+    INNER JOIN clients 
+    ON calls.ClientId = clients.Id
+    WHERE clients.SalespersonId = $salespersonId");
   $result = pg_execute($conn, "calls_select_stmt", array());
-
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if ((count($rows)) >= 1) {
@@ -135,7 +139,6 @@ function client_count($salespersonId = "all")
     $result = pg_execute($conn, "client_count_stmt", array());
   } else {
     // Prepared statement for selecting a user from the database filtered by salesperson ID
-    echo "<h1>SALESPERSOM ID: $salespersonId</h1>";
     $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = $salespersonId");
     $result = pg_execute($conn, "client_count_stmt", array());
   }
@@ -165,12 +168,17 @@ function salespeople_count()
 }
 
 // calls_count prepared statement - returns the number of entries in the calls table
-function calls_count()
+function calls_count($salespersonId)
 {
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
-  $calls_select_stmt = pg_prepare($conn, "calls_count_stmt", "SELECT * FROM calls");
+  $calls_select_stmt = pg_prepare($conn, "calls_count_stmt", "
+    SELECT *
+    FROM calls 
+    INNER JOIN clients 
+    ON calls.ClientId = clients.Id
+    WHERE clients.SalespersonId = $salespersonId");
   $result = pg_execute($conn, "calls_count_stmt", array());
 
   // Check for a result after querying database and if one exists, save it as an array to return user data

@@ -183,6 +183,7 @@ if ($output == "") {
 
     <?php
     if ($_SESSION['type'] == "s") {
+        $clientsDomain = "all";
         // Client Input Form
         display_form(
             array(
@@ -224,24 +225,9 @@ if ($output == "") {
 
             )
         );
-        echo '<h1>Active Clients</h1>';
-
-        display_table(
-            array(
-                "id" => "ID",
-                "emailaddress" => "Email Address",
-                "firstname" => "First Name",
-                "lastname" => "Last Name",
-                "phonenumber" => "Phone Number",
-                "logo_path" => "Logo"
-            ),
-            client_select_all("all"),
-            client_count("all"),
-            1
-        );
     } else {
         // Set salesperson to logged in user
-        $salesperonId = $_SESSION['id'];
+        $clientsDomain = $_SESSION['id'];
 
         // Client Input Form if salesperson logged in
         display_form(
@@ -283,24 +269,24 @@ if ($output == "") {
                 )
             )
         );
-        echo '<h1>Active Clients</h1>';
-
-        display_table(
-            array(
-                "id" => "ID",
-                "emailaddress" => "Email Address",
-                "firstname" => "First Name",
-                "lastname" => "Last Name",
-                "phonenumber" => "Phone Number",
-                "logo_path" => "Logo"
-            ),
-            client_select_all(27),
-            client_count(27),
-            1
-        );
     }
-    ?>
 
+    echo '<h1>Active Clients</h1>';
+
+    display_table(
+        array(
+            "id" => "ID",
+            "emailaddress" => "Email Address",
+            "firstname" => "First Name",
+            "lastname" => "Last Name",
+            "phonenumber" => "Phone Number",
+            "logo_path" => "Logo"
+        ),
+        client_select_all($clientsDomain),
+        client_count($clientsDomain),
+        1
+    );
+    ?>
 
     <?php
     include "./includes/footer.php";

@@ -1,0 +1,20 @@
+successful sign-in event at 13:04:37 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:06:24 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:06:29 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 13:44:03 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 13:44:06 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:44:42 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:44:45 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 13:45:03 20201114. User julio18@test.ca sign-out.
+attemped sign-in without a valid email event at 13:46:25 20201114. User unknown attemped sign-in without a valid email.
+successful sign-in event at 13:48:31 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:48:33 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:48:37 20201114. User julio18@test.ca successful sign-in.
+successfully added a call with client #34 to records event at 13:49:14 20201114. User 34 successfully added a call with client #34 to records.
+successfully added a call with client #34 to records event at 13:49:20 20201114. User 34 successfully added a call with client #34 to records.
+sign-out event at 14:01:22 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 14:01:23 20201114. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 14:02:14 20201114. User julio18@test.ca successful sign-in.
+successfully added a call with client #66 to records event at 14:02:42 20201114. User 66 successfully added a call with client #66 to records.
+successfully added a call with client #23 to records event at 14:02:47 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 14:03:04 20201114. User 23 successfully added a call with client #23 to records.
