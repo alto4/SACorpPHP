@@ -15,7 +15,6 @@ if ($_SESSION['type'] != "a") {
     redirect("sign-in.php");
 } else {
     $salespersonId = $_SESSION['id'];
-    echo "<h1>Salesperson ID: $salespersonId</h1>";
 }
 
 // Form submission logic
@@ -31,20 +30,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $reason  = trim($_POST["reason"]);
     $timeStamp =  date("Y-m-d G:i:s");
     $output = "";
-
-    // Insert call info into call table
-    $sql = "INSERT INTO calls(ClientId, Date, Reason) VALUES (
-        '$clientId',
-        '$timeStamp',
-        '$reason'
-        )
-    ";
-
-    $conn = db_connect();
-    $result = pg_query($conn, $sql);
-
+    
+    $result = call_create($clientId, $timeStamp, $reason);
     // If any issues arise with entering the record into the calls database, display a notice of the failure
-    if (!$result) {
+    if ($result == false) {
         $output .= "Sorry, this entry failed to be inserted into the records.";
     } else {
         // If the query produces a result, flash a message declaring the successful creation of the call record

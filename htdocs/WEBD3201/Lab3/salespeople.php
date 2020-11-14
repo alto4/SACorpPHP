@@ -119,40 +119,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If there are no validation or errors and all input has been validated, proceed to add user information to the database to complete the registration process
     if ($output == "") {
         // Insert salesperson info into salespeople table
-        $sql = "INSERT INTO salespeople(FirstName, LastName, EmailAddress, Password, PhoneNumber, PhoneExt, Type) VALUES (
-            '$firstName',
-            '$lastName',
-            '$email',
-            '$password',
-            '$phone',
-            '$extension',
-            'a'
-            );
-        ";
-
-        $result = pg_query($conn, $sql);
+        $result = salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, 'a'); 
 
         // If the query is unsuccessful, inform the user of this failure
-        if (!$result) {
-            $output .= "Sorry, this entry failed to be inserted into the records.";
-        }
-
-        // Insert salesperson info into users table
-        $sql = "INSERT INTO Users (EmailAddress, Password, FirstName, LastName, EnrolDate, Enabled, Type) VALUES (
-            '$email',
-            '$password',
-            '$firstName', 
-            '$lastName',
-            '2020-10-15 00:00:00',
-            true, 
-            'a' 
-            );
-        ";
-
-        $result = pg_query($conn, $sql);
-
-        // If the query is unsuccessful, inform the user of this failure
-        if (!$result) {
+        if ($result == false) {
             $output .= "Sorry, this entry failed to be inserted into the records.";
         } else {
             // Display success message that salesperson was created without error

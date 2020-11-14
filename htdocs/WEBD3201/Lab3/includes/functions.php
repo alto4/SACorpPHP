@@ -134,7 +134,8 @@ function display_form($elements)
 
       // If the element is not flagged to be a dropdown, generate a standard input element 
     } else if ($type == "file") {
-      echo '<input type=' . $type . ' class="form-control" id="uploadLogoId "name=' . $name . ' value=' . $value . '>';
+      echo '<input type=' . $type . ' class="form-control" id="uploadLogoId "name=' . $name . ' value=' . $value . '>
+      </div>';
     } else {
       echo '  <input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>
       </div>
@@ -157,18 +158,22 @@ function display_table($dataFields, $data, $numOfRows, $page)
   if (isset($_GET['page'])) {
     $page = $_GET['page'];
   } else {
-    // set proper default value if it was not set
+    // If no page has been set, 1 is the default
     $page = 1;
   }
 
+  // Pagination calculations
   $startingRecord = ($page - 1) * ROWS_PER_PAGE;
   $numOfPages = ceil($numOfRows / ROWS_PER_PAGE);
   $rowsOnLastPage = $numOfRows % ROWS_PER_PAGE;
 
+  // Begin table output
   echo '<div class="table-responsive w-75 mx-auto py-3">
           <table class="table table-dark table-bordered table-sm">
               <thead>
               <tr>';
+
+  // Generate table headings by looping through the keys of the passed in associative array of data
   foreach ($dataFields as $key) {
     echo '<th class="py-2">' . $key . '</th>';
   }
@@ -176,20 +181,26 @@ function display_table($dataFields, $data, $numOfRows, $page)
               </thead>
               <tbody>';
 
-  // Populate each new row with corresponding data from table
+  // Populate each new row with corresponding data from table by looping through the array
+  // Store indexed array of keys 
   $keys = array_keys($dataFields);
 
+  // Check if the final page of table data has been selected to avoid overflow beyond the databases final row
   if ($page == $numOfPages) {
     for ($i = $startingRecord; $i < $startingRecord + $rowsOnLastPage; $i++) {
+      // Set the current row index
       $row = $data[$i];
       echo "<tr>";
 
+      // Loop through each of the current rows keys to fill row columns with corresponding data
       for ($j = 0; $j < count($keys); $j++) {
         $col = $keys[$j];
-        //echo "<h1>Printing Key: $keys[$j]</h1>";
+
+        // Check for instance where the current column is a logo, and display a logo image rather than textual data if so
         if ($keys[$j] == "logo_path" && $row[$col] != "") {
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
         } else {
+          // Display regular textual data
           echo '
             <td class="py-2">' . $row[$col] . "</td>";
         }
@@ -197,14 +208,16 @@ function display_table($dataFields, $data, $numOfRows, $page)
       echo "</tr>";
     }
   } else {
-
+    // Loop through the set number of rows specified to be displayed on each page 
     for ($i = $startingRecord; $i < $startingRecord + ROWS_PER_PAGE; $i++) {
       $row = $data[$i];
       echo "<tr>";
 
+      // Loop through each of the current rows keys to fill row columns with corresponding data
       for ($j = 0; $j < count($keys); $j++) {
         $col = $keys[$j];
-        //echo "<h1>Printing Key: $keys[$j]</h1>";
+
+        // Check for instance where the current column is a logo, and display a logo image rather than textual data if so
         if ($keys[$j] == "logo_path" && $row[$col] != "") {
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
         } else {
@@ -216,10 +229,12 @@ function display_table($dataFields, $data, $numOfRows, $page)
     }
   }
 
-  echo      '</tbody>
+  // Output the closing tags for table of data
+  echo '</tbody>
           </table>
           </div>';
 
+  // Create pagination navigation buttons
   for ($i = 1; $i <= $numOfPages; $i++) {
     echo '<a class="btn btn-dark mx-1" href="?page=' . $i . '" >' . $i . '</a>';
   }

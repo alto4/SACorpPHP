@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $records = pg_num_rows($result);
 
         // Match entered id against ids that exist in the database
-        if (pg_fetch_result($result, 0, "id")) {
+        if ($records > 0) {
             // Check entered password against the password associated with the entered id that exists in the database
             if ($password == pg_fetch_result($result, 0, "password")) {
                 // Start a new session upon authentication
@@ -109,6 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         </form>
     </div>
 </div>
-        <?php
-        include "./includes/footer.php";
-        ?>
+<?php
+include "./includes/footer.php";
+?>

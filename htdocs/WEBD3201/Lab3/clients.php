@@ -44,33 +44,25 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email  = trim($_POST["email"]);
     $phone = trim($_POST['phone']);
-    $logo = $_FILES['logo']['name'];
     $output = "";
-
-    // Logo Upload Handling and Debug
-    echo '<div class="bg-danger p-3 border">
-    <h1>Debug Container</h1>';
-    echo "<h3>File Found: " . var_dump($_FILES['logo']) . "</h3>";
-    echo "<h3>File Name: " . $logo . "</h3>";
-    echo "<h3>File Type: " . $_FILES['logo']['type'] . "</h3>";
-    echo "<h3>File Errors: " . $_FILES['logo']['error'] . "</h3>";
-    echo "<h3>File Size: " . $_FILES['logo']['size'] . "</h3>";
-    echo '</div>';
 
     // FILE UPLOAD VALIDATIONS
     // Check for file upload errors
-    if ($_FILES['logo']['error'] != 0) {
-        $output .= "There was an issue uploading your file. Please try again.<br/>";
-    } else if ($_FILES['logo']['size'] > MAX_FILE_SIZE) {
-        $output .= "The selected file is too large. Please upload a file no larger than " . (MAX_FILE_SIZE / 1000) . " KB.<br/>";
-    } else if ($_FILES['logo']['type'] != "image/jpeg" && $_FILES['logo']['type'] != "image/pjpeg" && $_FILES['logo']['type'] != "image/jpg") {
-        $output .= "Only upload JPG, JPEG, or PJPEG file types may be used for the logo.";
-    } else {
-        // MOVE UPLOADED FILE
-        $logoUrl = "./logos/logo-client-$phone.jpg";
-        move_uploaded_file($_FILES['logo']['tmp_name'], $logoUrl);
-    }
+    if (count($_FILES) > 0) {
+        $logo = $_FILES['logo']['name'];
 
+        if ($_FILES['logo']['error'] != 0) {
+            $output .= "There was an issue uploading your file. Please try again.<br/>";
+        } else if ($_FILES['logo']['size'] > MAX_FILE_SIZE) {
+            $output .= "The selected file is too large. Please upload a file no larger than " . (MAX_FILE_SIZE / 1000) . " KB.<br/>";
+        } else if ($_FILES['logo']['type'] != "image/jpeg" && $_FILES['logo']['type'] != "image/pjpeg" && $_FILES['logo']['type'] != "image/jpg") {
+            $output .= "Only upload JPG, JPEG, or PJPEG file types may be used for the logo.";
+        } else {
+            // MOVE UPLOADED FILE
+            $logoUrl = "./logos/logo-client-$phone.jpg";
+            move_uploaded_file($_FILES['logo']['tmp_name'], $logoUrl);
+        }
+    }
     // FIRST NAME VALIDATIONS
     // Verify that the client's first name was entered, and if not, display an error message
     if (!isset($firstName) || $firstName == "") {
@@ -142,22 +134,9 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // If there are no validation or errors and all input has been validated, proceed to add client information to the database to complete the registration process
 if ($output == "") {
-    echo "<h1>Logo URL: $logoUrl</h1>";
-    $sql = "INSERT INTO clients(FirstName, LastName, SalespersonId, EmailAddress, PhoneNumber, Type, logo_path) VALUES (
-            '$firstName',
-            '$lastName',
-            '$salespersonId',
-            '$email',
-            '$phone',
-            'c',
-            '$logoUrl'
-        );
-    ";
+    $result = client_create($firstName, $lastName, $salespersonId, $email, $phone, 'c', $logoUrl);
 
-    $result = pg_query($conn, $sql);
-
-    // If the query is unsuccessful, inform the user of this failure
-    if (!$result) {
+    if ($result == false) {
         $output .= "Sorry, this entry failed to be inserted into the records.";
     } else {
         // Display success message that client was created without error
@@ -222,7 +201,13 @@ if ($output == "") {
                     "label" => "Phone Number",
                     "isDropdown" => false
                 ),
-
+                array(
+                    "type" => "file",
+                    "name" => "logo",
+                    "value" => $logo,
+                    "label" => "Client Logo",
+                    "isDropdown" => false
+                )
             )
         );
     } else {
