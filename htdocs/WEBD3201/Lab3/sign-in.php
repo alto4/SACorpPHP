@@ -32,65 +32,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     };
 
     // If both a login and a password have been set by the user, proceed to compare them to the database entries of user info
-    if ($output == "") {
-        // Query the database
-        $sql = "SELECT * FROM users WHERE EmailAddress ='$email'";
-        $result = pg_query($conn, $sql);
-        $records = pg_num_rows($result);
+    if ($output == "" && user_select($email) == false) {
+        $output .= "The email address " . $email . "<br/> has not been registered.";
+        $email = "";
+        $password = "";
+    }
 
-        // Match entered id against ids that exist in the database
-        if ($records > 0) {
-            // Check entered password against the password associated with the entered id that exists in the database
-            if ($password == pg_fetch_result($result, 0, "password") || password_verify($password, pg_fetch_result($result, 0, "password"))) {
-                // Start a new session upon authentication
-                session_start();
+    if ($output == "" && user_authenticate($email, $password) != true) {
 
-                // Log valid login 
-                updateLogs($email, "successful sign-in");
-
-                // If email and password are authenticated, output a welcome message to the user with a brief summary of their account activity
-                $output .= "Welcome back! Your account is associated with the email address " . pg_fetch_result($result, 0, "emailaddress") . " and you were last logged in on " . pg_fetch_result($result, 0, "lastaccess") . ".";
-
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
-
-                // Update the session credential/user type to match what's stored in the database
-                $_SESSION['type'] = pg_fetch_result($result, 0, "type");
-
-                // If a salesperson is logged in, grab their id from the salesperson table for use in client interactions
-                if ($_SESSION['type'] == "a") {
-                    $sql = "SELECT id FROM salespeople WHERE EmailAddress ='$email'";
-                    $result = pg_query($conn, $sql);
-                    $_SESSION['id'] = pg_fetch_result($result, 0, "id");
-                }
-
-                // Upon successful login, redirect user back to the dashboard page                   
-                update_last_login($email);
-                user_authenticate($email, $password);
-
-                setMessage($output, "success");
-
-                header('Location: dashboard.php');
-            }
-            // If password does not match the corresponding id, output an error message
-            else {
-                $output .= "The password you have entered is incorrect.<br />Please try again.";
-                $password = "";
-
-                updateLogs($email, "unsuccessful login due to bad password");
-            }
-        }
-        // If the user id is not found in the database records, display an error message and clear form fields
-        else {
-            $output .= "The email address " . $email . "<br/> has not been registered.";
-            $email = "";
-            $password = "";
-
-            // Log invalid attempt 
-            updateLogs("unknown", "attemped sign-in without a valid email");
-        }
+        $output .= "The password you have entered is incorrect.<br />Please try again.";
+        $password = "";
     }
 }
+
 ?>
 
 <div class="text-align-center">

@@ -94,13 +94,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // SQL Query to check if ID exists in the database records 
-    $conn = db_connect();
-    $sql = "SELECT EmailAddress FROM users WHERE EmailAddress='$email'";
-    $result = pg_query($conn, $sql);
-    $records = pg_num_rows($result);
+    $result = user_select($email);
 
     // If the email is already registered for another user account, display an error message requiring a unique email for proceeding
-    if ($records > 0) {
+    if ($result != false) {
         $output .= "This email already exists in the records. Please enter a unique email for the new salesperson.<br />.";
     }
 
@@ -119,7 +116,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If there are no validation or errors and all input has been validated, proceed to add user information to the database to complete the registration process
     if ($output == "") {
         // Insert salesperson info into salespeople table
-        $result = salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, 'a'); 
+        $result = salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, 'a');
 
         // If the query is unsuccessful, inform the user of this failure
         if ($result == false) {

@@ -232,7 +232,7 @@ function display_table($dataFields, $data, $numOfRows, $page)
   // Output the closing tags for table of data
   echo '</tbody>
           </table>
-          </div>';
+          ';
 
   // Create pagination navigation buttons
   for ($i = 1; $i <= $numOfPages; $i++) {

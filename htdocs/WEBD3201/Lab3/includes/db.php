@@ -13,7 +13,7 @@ function db_connect()
 }
 
 // user_select function - queries the database for id provided, returns an array containing user details if user found, or otherwise returns false
-function user_select($id)
+function user_select($email)
 {
   // Assume user does not exist
   $user = false;
@@ -22,33 +22,69 @@ function user_select($id)
 
   // Prepared statement for selecting a user from the database
   $user_select_stmt = pg_prepare($conn, "user_select_stmt", "SELECT * FROM users WHERE EmailAddress = $1");
-  $result = pg_execute($conn, "user_select_stmt", array($id));
+  $result = pg_execute($conn, "user_select_stmt", array($email));
 
   // Check for a result after querying database and if one exists, save it as an array to return user data
-  if (pg_num_rows($result) == 1) {
+  if (pg_num_rows($result) >= 1) {
     $user = pg_fetch_assoc($result, 0);
+    return $user;
   }
 
-  return $user;
+  // Log invalid attempt 
+  updateLogs("unknown", "attemped sign-in without a valid email");
+
+  return false;
 }
 
 // user_authenticate function - verifies that the user's password entry matches what is stored in the database before granting access
-function user_authenticate($id, $password)
+function user_authenticate($email, $password)
 {
-  // Ensure user credentials check out and store data in an array
-  $userInfo = user_select($id);
-  $password = $userInfo['password'];
-  // Verify the users password using password decryption function
-  $password = password_hash($password, PASSWORD_BCRYPT);
+  $conn = db_connect();
 
-  if (password_verify($password, $userInfo['password'])) {
+  // Prepared statement for selecting a user from the database
+  $user_authenticate_stmt = pg_prepare($conn, "user_authenticate_stmt", "SELECT * FROM users WHERE EmailAddress = $1");
+  $result = pg_execute($conn, "user_authenticate_stmt", array($email));
+  $records = pg_num_rows($result);
 
-    $_SESSION['user'] = $id;
+  // Match entered id against ids that exist in the database
+  if ($records > 0) {
+    // Check entered password against the password associated with the entered id that exists in the database
+    if ($password == pg_fetch_result($result, 0, "password") || password_verify($password, pg_fetch_result($result, 0, "password"))) {
+      // Start a new session upon authentication
+      session_start();
 
-    update_last_login($id);
-    return true;
+      // Log valid login 
+      updateLogs($email, "successful sign-in");
+
+      // If email and password are authenticated, output a welcome message to the user with a brief summary of their account activity
+      $output = "Welcome back! Your account is associated with the email address " . pg_fetch_result($result, 0, "emailaddress") . " and you were last logged in on " . pg_fetch_result($result, 0, "lastaccess") . ".";
+      setMessage($output, "success");
+
+      header('Location: dashboard.php');
+
+      $_SESSION['email'] = $email;
+      $_SESSION['password'] = $password;
+
+      // Update the session credential/user type to match what's stored in the database
+      $_SESSION['type'] = pg_fetch_result($result, 0, "type");
+
+      // If a salesperson is logged in, grab their id from the salesperson table for use in client interactions
+      if ($_SESSION['type'] == "a") {
+        $sql = "SELECT id FROM salespeople WHERE EmailAddress ='$email'";
+        $result = pg_query($conn, $sql);
+        $_SESSION['id'] = pg_fetch_result($result, 0, "id");
+      }
+
+      // Upon successful login, redirect user back to the dashboard page                   
+      update_last_login($email);
+      return true;
+    }
+    // If password does not match the corresponding id, output an error message
+    else {
+      updateLogs($email, "unsuccessful login due to bad password");
+      return false;
+    }
   }
-
   return false;
 }
 
@@ -81,7 +117,7 @@ function client_select_all($salespersonId)
   }
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
-  if ((count($rows)) >= 1) {
+  if ($rows) {
     return $rows;
   }
 
@@ -99,7 +135,7 @@ function salespeople_select_all()
 
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
-  if ((count($rows)) >= 1) {
+  if ($rows) {
     return $rows;
   }
 
@@ -121,7 +157,8 @@ function calls_select_all($salespersonId)
   $result = pg_execute($conn, "calls_select_stmt", array());
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
-  if ((count($rows)) >= 1) {
+
+  if ($rows) {
     return $rows;
   }
 
@@ -293,12 +330,9 @@ function user_create($firstName, $lastName, $email, $password, $phone, $extensio
 function user_update_password($email, $newPassword)
 {
   $conn = db_connect();
-  // DEBUG for password encryption
+  // Encrypt new password before updating in database
   $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-  // echo "<h1>Hashed password for database:" . $hashedPassword . "</h1>";
-  // if (password_verify($newPassword, $hashedPassword)) {
-  //   echo "<h1>Houston, we have a match!</h1>";
-  // }
+
   // Prepared statement for creating updated password in database after encyption
   $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", $sql = "      
     UPDATE users
