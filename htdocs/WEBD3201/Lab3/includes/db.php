@@ -189,7 +189,7 @@ function calls_count($salespersonId)
 }
 
 // call_create prepared statement
-function call_create($client, $time, $reason) 
+function call_create($client, $time, $reason)
 {
   $conn = db_connect();
   // Prepared statement for creating a new call record
@@ -200,17 +200,17 @@ function call_create($client, $time, $reason)
       '$reason'
     )
   ");
-  
+
   $result = pg_execute($conn, "call_create_stmt", array());
-  if($result) {
+  if ($result) {
     return true;
-  } 
+  }
 
   return false;
 }
 
 // client_create prepared statement
-function client_create($firstName, $lastName, $salespersonId, $email, $phone, $type, $logoUrl) 
+function client_create($firstName, $lastName, $salespersonId, $email, $phone, $type, $logoUrl)
 {
   $conn = db_connect();
   // Prepared statement for creating a new client record
@@ -227,15 +227,15 @@ function client_create($firstName, $lastName, $salespersonId, $email, $phone, $t
   ");
 
   $result = pg_execute($conn, "client_create_stmt", array());
-  if($result) {
+  if ($result) {
     return true;
-  } 
+  }
 
   return false;
 }
 
 // client_create prepared statement
-function salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, $type) 
+function salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, $type)
 {
   $conn = db_connect();
   $timeStamp =  date("Y-m-d G:i:s");
@@ -255,15 +255,15 @@ function salesperson_create($firstName, $lastName, $email, $password, $phone, $e
   $resultSalespersonEntry = pg_execute($conn, "salesperson_create_stmt", array());
   $resultUserEntry = user_create($firstName, $lastName, $email, $password, $phone, $extension, $type);
 
-  if($resultSalespersonEntry == true && $resultUserEntry == true) {
+  if ($resultSalespersonEntry == true && $resultUserEntry == true) {
     return true;
-  } 
+  }
 
   return false;
 }
 
 // user_create prepared statement
-function user_create($firstName, $lastName, $email, $password, $phone, $extension, $type) 
+function user_create($firstName, $lastName, $email, $password, $phone, $extension, $type)
 {
   $conn = db_connect();
   $timeStamp =  date("Y-m-d G:i:s");
@@ -282,35 +282,35 @@ function user_create($firstName, $lastName, $email, $password, $phone, $extensio
 
   $result = pg_execute($conn, "user_create_stmt", array());
 
-  if($result) {
+  if ($result) {
     return true;
-  } 
+  }
 
   return false;
 }
 
 // user_update_password prepared statement
-function user_update_password($email, $newPassword) 
+function user_update_password($email, $newPassword)
 {
   $conn = db_connect();
+  // DEBUG for password encryption
+  $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+  // echo "<h1>Hashed password for database:" . $hashedPassword . "</h1>";
+  // if (password_verify($newPassword, $hashedPassword)) {
+  //   echo "<h1>Houston, we have a match!</h1>";
+  // }
   // Prepared statement for creating updated password in database after encyption
   $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", $sql = "      
     UPDATE users
-    SET password = '$newPassword' 
+    SET password = '$hashedPassword' 
     WHERE emailAddress = '$email';
   ");
 
   $result = pg_execute($conn, "user_update_password_stmt", array());
 
-  if($result) {
+  if ($result) {
     return true;
-  } 
+  }
 
   return false;
 }
-
-
-
-
-
-

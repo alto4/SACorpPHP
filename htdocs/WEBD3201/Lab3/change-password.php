@@ -29,26 +29,32 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $passwordConfirm  = trim($_POST["confirm"]);
 
   // PASSWORD VALIDATIONS
-  // Confirm that new password entries match
 
   // Confirm that password is at least 3 characters in length
-  
-  $result = user_update_password($email, $newPassword);
+  if (strlen($newPassword) < 3) {
+    $output .= "Your new password must be at least 3 characters in length.";
+  } else if ($newPassword !== $passwordConfirm) {
+    $output .= "The passwords entered in both fields must match for the change to be processed.";
+  }
 
-  // If any issues arise with entering the record into the calls database, display a notice of the failure
-  if ($result == false) {
-    $output .= "Sorry, this entry failed to be updated in our records.";
-  } else {
-    // If the query produces a result, flash a message declaring the successful creation of the call record
-    setMessage("You password was successfully updated.", "success");
-    $message = flashMessage();
+  if ($output == "") {
+    $result = user_update_password($email, $newPassword);
 
-    // Log call creation event in activity logs
-    updateLogs("$email", "successfully updated their account password");
+    // If any issues arise with entering the record into the calls database, display a notice of the failure
+    if ($result == false) {
+      $output .= "Sorry, this entry failed to be updated in our records.";
+    } else {
+      // If the query produces a result, flash a message declaring the successful creation of the call record
+      setMessage("You password was successfully updated.", "success");
+      $message = flashMessage();
 
-    // Clear all fields once the call is successfully entered in the db
-    $newPassword = "";
-    $passwordConfirm = "";
+      // Log call creation event in activity logs
+      updateLogs("$email", "successfully updated their account password");
+
+      // Clear all fields once the call is successfully entered in the db
+      $newPassword = "";
+      $passwordConfirm = "";
+    }
   }
 }
 ?>
@@ -56,7 +62,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Change Password</h1>
 
 <p class="w-75 lead mx-auto">To change your password, please enter a new password below, and then verify it by retyping it in the second field.</h6>
-
+  <h5 class="text-danger"><?php echo $output ?></h5>
   <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
   <?php
   display_form(
