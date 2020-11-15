@@ -24,3 +24,12 @@ successfully updated their account password event at 13:18:41 20201115. User sco
 successfully updated their account password event at 13:19:36 20201115. User scottalton@gmail.com successfully updated their account password.
 sign-out event at 13:19:39 20201115. User scottalton@gmail.com sign-out.
 unsuccessful login due to bad password event at 13:19:43 20201115. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 13:24:18 20201115. User julio18@test.ca successful sign-in.
+sign-out event at 13:25:51 20201115. User julio18@test.ca sign-out.
+unsuccessful login due to bad password event at 13:25:56 20201115. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 13:26:50 20201115. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 13:26:54 20201115. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 13:27:03 20201115. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 13:27:05 20201115. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:27:08 20201115. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 13:27:23 20201115. User scottalton@gmail.com successfully updated their account password.

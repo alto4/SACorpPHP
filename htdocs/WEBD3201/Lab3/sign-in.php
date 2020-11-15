@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Match entered id against ids that exist in the database
         if ($records > 0) {
             // Check entered password against the password associated with the entered id that exists in the database
-            if ($password == pg_fetch_result($result, 0, "password")) {
+            if ($password == pg_fetch_result($result, 0, "password") || password_verify($password, pg_fetch_result($result, 0, "password"))) {
                 // Start a new session upon authentication
                 session_start();
 
