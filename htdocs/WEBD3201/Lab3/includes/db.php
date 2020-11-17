@@ -70,9 +70,7 @@ function user_authenticate($email, $password)
 
       // If a salesperson is logged in, grab their id from the salesperson table for use in client interactions
       if ($_SESSION['type'] == "a") {
-        $sql = "SELECT id FROM salespeople WHERE EmailAddress ='$email'";
-        $result = pg_query($conn, $sql);
-        $_SESSION['id'] = pg_fetch_result($result, 0, "id");
+        $_SESSION['id'] = salesperson_select_id($email);
       }
 
       // Upon successful login, redirect user back to the dashboard page                   
@@ -86,6 +84,17 @@ function user_authenticate($email, $password)
     }
   }
   return false;
+}
+
+function salesperson_select_id($email)
+{
+  $conn = db_connect();
+
+  // Prepared statement for selecting a user from the database
+  $salesperson_select_id_stmt = pg_prepare($conn, "salesperson_select_id_stmt", "SELECT * FROM salespeople WHERE EmailAddress = $1");
+  $id = pg_fetch_result(pg_execute($conn, "salesperson_select_id_stmt", array($email)), 0, "id");
+
+  return $id;
 }
 
 // update_last_login function - accepts a logged in users id/email and updates the database record of their most recent sign in
@@ -109,17 +118,40 @@ function client_select_all($salespersonId)
 
   // Prepared statement for selecting a user from the database
   if ($salespersonId == "all") {
-    $clients_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients");
-    $result = pg_execute($conn, "client_select_stmt", array());
+    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients");
+    $result = pg_execute($conn, "client_select_all_stmt", array());
   } else {
-    $clients_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients WHERE salespersonId = " . $salespersonId);
-    $result = pg_execute($conn, "client_select_stmt", array());
+    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients WHERE salespersonId = " . $salespersonId);
+    $result = pg_execute($conn, "client_select_all_stmt", array());
   }
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if ($rows) {
     return $rows;
   }
+
+  return false;
+}
+
+// client_select function - queries the database for id provided, returns an array containing user details if user found, or otherwise returns false
+function client_select($email)
+{
+  // Assume user does not exist
+  $user = false;
+
+  $conn = db_connect();
+
+  // Prepared statement for selecting a user from the database
+  $client_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients WHERE EmailAddress = $1");
+  $result = pg_execute($conn, "client_select_stmt", array($email));
+
+  // Check for a result after querying database and if one exists, return true
+  if (pg_num_rows($result) >= 1) {
+    return true;
+  }
+
+  // Log invalid attempt 
+  updateLogs("User", "attemped new client input with the email $email that already exists in our records.");
 
   return false;
 }

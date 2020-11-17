@@ -15,6 +15,7 @@ if (!$_SESSION) {
 
 ?>
 <h1>Dashboard</h1>
+
 <div class="container d-flex justify-content-center w-100">
     <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
 </div>

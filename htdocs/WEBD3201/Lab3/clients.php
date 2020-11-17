@@ -105,16 +105,8 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $output .= $email . " is not a valid email address. Please try again.<br/>";
         $email = "";
     }
-
-    // SQL Query to check if ID exists in the database records 
-    $conn = db_connect();
-    $sql = "SELECT EmailAddress FROM clients WHERE EmailAddress='$email'";
-
-    $result = pg_query($conn, $sql);
-    $records = pg_num_rows($result);
-
     // If the email is already registered for another user account, display an error message requiring a unique email for proceeding
-    if ($records > 0) {
+    else if (client_select($email) == true) {
         $output .= "This email already exists in the records. Please enter a unique email for the new client.<br />.";
     }
 

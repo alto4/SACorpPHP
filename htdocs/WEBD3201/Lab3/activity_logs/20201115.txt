@@ -162,3 +162,6 @@ attemped sign-in without a valid email event at 15:32:50 20201115. User unknown 
 attemped sign-in without a valid email event at 15:33:29 20201115. User unknown attemped sign-in without a valid email.
 attemped sign-in without a valid email event at 15:34:48 20201115. User unknown attemped sign-in without a valid email.
 attemped sign-in without a valid email event at 15:35:04 20201115. User unknown attemped sign-in without a valid email.
+sign-out event at 15:37:29 20201115. User telus@tewl.us sign-out.
+successful sign-in event at 15:37:31 20201115. User telus@tewl.us successful sign-in.
+successfully added a call with client #76 to records event at 15:37:38 20201115. User 76 successfully added a call with client #76 to records.
