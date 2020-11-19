@@ -121,8 +121,8 @@ function client_select_all($salespersonId)
     $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients");
     $result = pg_execute($conn, "client_select_all_stmt", array());
   } else {
-    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients WHERE salespersonId = " . $salespersonId);
-    $result = pg_execute($conn, "client_select_all_stmt", array());
+    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients WHERE salespersonId = $1");
+    $result = pg_execute($conn, "client_select_all_stmt", array($salespersonId));
   }
   $rows = pg_fetch_all($result);
   // Check for a result after querying database and if one exists, save it as an array to return user data
@@ -208,8 +208,8 @@ function client_count($salespersonId)
     $result = pg_execute($conn, "client_count_stmt", array());
   } else {
     // Prepared statement for selecting a user from the database filtered by salesperson ID
-    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = $salespersonId");
-    $result = pg_execute($conn, "client_count_stmt", array());
+    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = $1");
+    $result = pg_execute($conn, "client_count_stmt", array($salespersonId));
   }
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if (pg_num_rows($result) >= 1) {
@@ -309,7 +309,7 @@ function salesperson_create($firstName, $lastName, $email, $password, $phone, $e
   $conn = db_connect();
   $timeStamp =  date("Y-m-d G:i:s");
   // Prepared statement for creating a new client record
-  $salesperson_create_stmt = pg_prepare($conn, "salesperson_create_stmt", $sql = "
+  $salesperson_create_stmt = pg_prepare($conn, "salesperson_create_stmt", "
     INSERT INTO salespeople(FirstName, LastName, EmailAddress, Password, PhoneNumber, PhoneExt, Type) VALUES (
       '$firstName',
       '$lastName',
@@ -337,7 +337,7 @@ function user_create($firstName, $lastName, $email, $password, $phone, $extensio
   $conn = db_connect();
   $timeStamp =  date("Y-m-d G:i:s");
   // Prepared statement for creating a new client record
-  $user_create_stmt = pg_prepare($conn, "user_create_stmt", $sql = "      
+  $user_create_stmt = pg_prepare($conn, "user_create_stmt", "      
     INSERT INTO users (FirstName, LastName, EmailAddress, Password,  EnrolDate, Enabled, Type) VALUES (
       '$firstName', 
       '$lastName',
@@ -366,7 +366,7 @@ function user_update_password($email, $newPassword)
   $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
 
   // Prepared statement for creating updated password in database after encyption
-  $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", $sql = "      
+  $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", "      
     UPDATE users
     SET password = '$hashedPassword' 
     WHERE emailAddress = '$email';
@@ -379,4 +379,28 @@ function user_update_password($email, $newPassword)
   }
 
   return false;
+}
+
+// user_dropdown_options prepared statement
+function select_dropdown_options($name)
+{
+  $conn = db_connect();
+
+  // Generate the salespeople from the database as select options if that is the name passed in to the element
+  if ($name == "salesperson") {
+    // Prepared statement for selecting salesperson dropdown options
+    $table = "salespeople";
+    $salesperson_dropdown_select_stmt = pg_prepare($conn, "salesperson_dropdown_select_stmt", "SELECT Id, FirstName, LastName FROM $table;");
+    $result = pg_execute($conn, "salesperson_dropdown_select_stmt", array());
+
+    // Generate the clients from the database as select options if salesperson is logged in by filtering only their clients
+  } else if ($name == "client" && $_SESSION['type'] == "a") {
+    // Prepared statement for selecting salesperson dropdown options
+    $table = "clients";
+    $SalespersonId = $_SESSION['id'];
+    $clients_dropdown_select_stmt = pg_prepare($conn, "clients_dropdown_select_stmt", "SELECT Id, FirstName, LastName FROM $table WHERE SalespersonId = $SalespersonId;");
+    $result = pg_execute($conn, "clients_dropdown_select_stmt", array());
+  }
+
+  return $result;
 }

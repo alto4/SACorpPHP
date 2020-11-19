@@ -42,7 +42,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $salespersonId = $_SESSION['id'];
     }
 
-    $email  = trim($_POST["email"]);
+    $email  = trim($_POST['email']);
     $phone = trim($_POST['phone']);
     $output = "";
 
@@ -175,7 +175,7 @@ if ($output == "") {
                 array(
                     "type" => "select",
                     "name" => "salesperson",
-                    "value" => "12",
+                    "value" => "",
                     "label" => "Salesperson",
                     "isDropdown" => true
                 ),

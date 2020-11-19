@@ -106,22 +106,13 @@ function display_form($elements)
     // Check for flag that determines if a form element needs to be processed as a dropdown 
     if ($dropdown == true) {
 
-      // Generate the salespeople from the database as select options if that is the name passed in to the element
       if ($name == "salesperson") {
-        $table = "salespeople";
-        $sql = "SELECT Id, FirstName, LastName FROM $table";
-        echo '<select name="salespersonId" class="d-block w-100 p-2 form-control my-3">';
-        // Generate the clients from the database as select options if salesperson is logged in by filtering only their clients
+        $result = select_dropdown_options("salesperson");
+        echo '<select name="client" class="d-block w-100 p-2 form-control my-3">';
       } else if ($name == "client" && $_SESSION['type'] == "a") {
-        $table = "clients";
-        $SalespersonId = $_SESSION['id'];
-        $sql = "SELECT Id, FirstName, LastName FROM $table WHERE SalespersonId = $SalespersonId";
+        $result = select_dropdown_options("client");
         echo '<select name="client" class="d-block w-100 p-2 form-control my-3">';
       }
-
-      // Query the database for all salespeople or clients to populate dropdown select options
-      $conn = db_connect();
-      $result = pg_query($conn, $sql);
 
       // Populate the option elements with the first and last name of targetted table, and set each elements value to their 
       //  unique id
@@ -133,9 +124,6 @@ function display_form($elements)
       echo '</select>';
 
       // If the element is not flagged to be a dropdown, generate a standard input element 
-    } else if ($type == "file") {
-      echo '<input type=' . $type . ' class="form-control" id="uploadLogoId "name=' . $name . ' value=' . $value . '>
-      </div>';
     } else {
       echo '  <input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>
       </div>
@@ -163,9 +151,9 @@ function display_table($dataFields, $data, $numOfRows, $page)
   }
 
   // Pagination calculations
-  $startingRecord = ($page - 1) * ROWS_PER_PAGE;
-  $numOfPages = ceil($numOfRows / ROWS_PER_PAGE);
-  $rowsOnLastPage = $numOfRows % ROWS_PER_PAGE;
+  $startingRecord = ($page - 1) * RECORDS_PER_PAGE;
+  $numOfPages = ceil($numOfRows / RECORDS_PER_PAGE);
+  $rowsOnLastPage = $numOfRows % RECORDS_PER_PAGE;
 
   // Begin table output
   echo '<div class="table-responsive w-75 mx-auto py-3">
@@ -209,7 +197,7 @@ function display_table($dataFields, $data, $numOfRows, $page)
     }
   } else {
     // Loop through the set number of rows specified to be displayed on each page 
-    for ($i = $startingRecord; $i < $startingRecord + ROWS_PER_PAGE; $i++) {
+    for ($i = $startingRecord; $i < $startingRecord + RECORDS_PER_PAGE; $i++) {
       $row = $data[$i];
       echo "<tr>";
 

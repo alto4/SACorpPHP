@@ -31,7 +31,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // PASSWORD VALIDATIONS
 
   // Confirm that password is at least 3 characters in length
-  if (strlen($newPassword) < 3) {
+  if (strlen($newPassword) < MIN_PASSWORD_LENGTH) {
     $output .= "Your new password must be at least 3 characters in length.";
   } else if ($newPassword !== $passwordConfirm) {
     $output .= "The passwords entered in both fields must match for the change to be processed.";
