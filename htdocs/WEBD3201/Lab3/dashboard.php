@@ -9,7 +9,7 @@ include "./includes/header.php";
 // Redirect to sign-in page if a session has not been authorized
 if (!$_SESSION) {
     $output .= "Sorry, you must be logged in to access that page.";
-    setMessage($output, "success");
+    set_message($output, "success");
     redirect("sign-in.php");
 }
 

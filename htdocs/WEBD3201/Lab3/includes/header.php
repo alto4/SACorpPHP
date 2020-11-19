@@ -13,7 +13,7 @@
   require("./includes/db.php");
   require("./includes/functions.php");
 
-  $message = flashMessage();
+  $message = flash_message();
 
   // Set time zone for logging user activity in text files and database
   date_default_timezone_set("America/New_York");

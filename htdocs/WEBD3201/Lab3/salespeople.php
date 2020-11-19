@@ -4,14 +4,14 @@ $file = "salespeople.php";
 $description = "This page presents a salesperson input form that allows administrators to input news salespeople, and creates 
 a record of their active employment in the salesperson table. Upon creation, the salesperson will also be assigned login
 credentials and entered as a registered user in the users table.";
-$date = "October 22, 2020";
+$date = "November 18, 2020";
 
 include "./includes/header.php";
 
 // Redirect to sign-in page if the user is not authorized as a administrator able to create a new salesperson/site user
 if ($_SESSION['type'] != "s") {
     $output .= "Sorry, you must be logged in as an administrator to access this page.";
-    setMessage($output, "success");
+    set_message($output, "success");
     redirect("sign-in.php");
 }
 
@@ -19,8 +19,8 @@ if ($_SESSION['type'] != "s") {
 // When the page first loads or is reset, create empty variables that will attempt to collect user login and password that wil match with an entry in the database
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = "";
-    $firstName = "";
-    $lastName = "";
+    $first_name = "";
+    $last_name = "";
     $email  = "";
     $password = "";
     $phone = "";
@@ -32,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // If the user has tried to register a new salesperson after the page first loads, attempt to validate the provided information 
 else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST["password"]);
-    $firstName = trim($_POST["firstName"]);
-    $lastName = trim($_POST["lastName"]);
+    $first_name = trim($_POST["firstName"]);
+    $last_name = trim($_POST["lastName"]);
     $email  = trim($_POST["email"]);
     $phone = trim($_POST['phone']);
     $extension = trim($_POST['extension']);
@@ -52,34 +52,34 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // FIRST NAME VALIDATIONS
     // Verify that salesperson's first name was entered, and if not, display an error message
-    if (!isset($firstName) || $firstName == "") {
+    if (!isset($first_name) || $first_name == "") {
         $output .= "You must enter salesperson's first name.</br>";
     }
     // Check that the first name does not exceed the maximum field length requirements
-    else if (strlen("$firstName") > MAX_FIRST_NAME_LENGTH) {
+    else if (strlen("$first_name") > MAX_FIRST_NAME_LENGTH) {
         $output .= "The first name entered cannot exceed " . MAX_FIRST_NAME_LENGTH . " characters in length.<br/>";
-        $firstname = "";
+        $first_name = "";
     }
     // Check that the first name does not contain any numeric entries
-    else if (is_numeric($firstName)) {
+    else if (is_numeric($first_name)) {
         $output .= "The first name entered may not contain any numeric characters. Please only enter letters from the alphabet.<br/>";
-        $firstname = "";
+        $first_name = "";
     };
 
     // LAST NAME VALIDATIONS
     // Verify that salesperson's last name was entered, and if not, display an error message
-    if (!isset($lastName) || $lastName == "") {
+    if (!isset($last_name) || $last_name == "") {
         $output .= "You must enter the salesperon's last name.</br>";
     }
     // Check that the last name does not exceed the maximum file length requirements
-    else if (strlen("$lastName") > MAX_LAST_NAME_LENGTH) {
+    else if (strlen("$last_name") > MAX_LAST_NAME_LENGTH) {
         $output .= "The last name entered cannot exceed " . MAX_LAST_NAME_LENGTH . " characters in length.<br/>";
-        $lastName = "";
+        $last_name = "";
     }
     // Check that the last name does not contain any numeric entries
-    else if (is_numeric($lastName)) {
+    else if (is_numeric($last_name)) {
         $output .= "The last name entered may not contain any numeric characters. Please only enter letters from the alphabet.<br/>";
-        $lastName = "";
+        $last_name = "";
     };
 
     // EMAIL VALIDATIONS
@@ -113,27 +113,27 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     // END OF VALIDATIONS        
 
-    // If there are no validation or errors and all input has been validated, proceed to add user information to the database to complete the registration process
+    // If there are no validation errors and all input has been validated, proceed to add user information to the database to complete the registration process
     if ($output == "") {
         // Insert salesperson info into salespeople table
-        $result = salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, 'a');
+        $result = salesperson_create($first_name, $last_name, $email, $password, $phone, $extension, 'a');
 
         // If the query is unsuccessful, inform the user of this failure
         if ($result == false) {
             $output .= "Sorry, this entry failed to be inserted into the records.";
         } else {
             // Display success message that salesperson was created without error
-            setMessage("$firstName $lastName was successfully registered into our records as a salesperson.", "success");
-            $message = flashMessage();
+            set_message("$first_name $last_name was successfully registered into our records as a salesperson.", "success");
+            $message = flash_message();
 
             // Log salesperson creation event
-            updateLogs("$firstName $lastName", "successfully created as a salesperson");
+            update_logs("$first_name $last_name", "successfully created as a salesperson");
 
             // Clear all fields once salesperson is successfully entered in the db
             $id = "";
             $password = "";
-            $firstName = "";
-            $lastName = "";
+            $first_name = "";
+            $last_name = "";
             $email  = "";
             $password = "";
             $phone = "";
@@ -160,44 +160,44 @@ display_form(
         array(
             "type" => "text",
             "name" => "firstName",
-            "value" => $firstName,
+            "value" => $first_name,
             "label" => "First Name",
-            "isDropdown" => false
+            "is_dropdown" => false
         ),
         array(
             "type" => "text",
             "name" => "lastName",
-            "value" => $lastName,
+            "value" => $last_name,
             "label" => "Last Name",
-            "isDropdown" => false
+            "is_dropdown" => false
         ),
         array(
             "type" => "email",
             "name" => "email",
             "value" => $email,
             "label" => "Email Address",
-            "isDropdown" => false
+            "is_dropdown" => false
         ),
         array(
             "type" => "password",
             "name" => "password",
             "value" => "",
             "label" => "Password",
-            "isDropdown" => false
+            "is_dropdown" => false
         ),
         array(
             "type" => "phone",
             "name" => "phone",
             "value" => $phone,
             "label" => "Phone Number",
-            "isDropdown" => false
+            "is_dropdown" => false
         ),
         array(
             "type" => "number",
             "name" => "extension",
             "value" => $extension,
             "label" => "Extension",
-            "isDropdown" => false
+            "is_dropdown" => false
         )
     )
 );
@@ -209,11 +209,11 @@ display_form(
 display_table(
     array(
         "id" => "ID",
-        "firstname" => "First Name",
-        "lastname" => "Last Name",
-        "emailaddress" => "Email Address",
-        "phonenumber" => "Phone Number",
-        "phoneext" => "Phone Ext."
+        "first_name" => "First Name",
+        "last_name" => "Last Name",
+        "email_address" => "Email Address",
+        "phone_number" => "Phone Number",
+        "phone_ext" => "Phone Ext."
     ),
     salespeople_select_all(),
     salespeople_count(),

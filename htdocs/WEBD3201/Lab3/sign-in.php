@@ -4,7 +4,7 @@ $file = "sign-in.php";
 $description = "This page contains the sign-in form for the entire site, and a user's form submission is validated by several conditional statements to guide
                 their input, and once input is valid, and attempt to authenticate the user's email and password is attempted. If the details pass,
                 the user will be redirected to the user dashboard";
-$date = "October 22, 2020";
+$date = "November 18, 2020";
 
 include "./includes/header.php";
 
@@ -17,9 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
     $output = "";
-
-    // Save the function that connects to the database as a variable
-    $conn = db_connect();
 
     // Verify that user id was entered, and if not, display an error message
     if (!isset($email) || $email == "") {
@@ -63,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         </form>
     </div>
 </div>
+
 <?php
 include "./includes/footer.php";
 ?>

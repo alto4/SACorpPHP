@@ -15,7 +15,7 @@ if ($_SESSION) {
   session_destroy();
 
   // Log sign out event
-  updateLogs($email, "sign-out");
+  update_logs($email, "sign-out");
 }
 
 // Redirect the signed out user to the sign-in page if they would like access to restricted pages

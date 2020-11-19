@@ -1,10 +1,10 @@
 <?php
-
 /*
-    Name: Scott Alton
-    Date: November 18, 2020
-    File: constants.php
-    Description: This file contains constant declarations for various user types, as well as database details 
+    Name:           Scott Alton
+    Date:           November 18, 2020
+    File:           constants.php
+    Description:    This file contains constant declarations for various user types, database connection details,
+                    UI variables, and validation variables.
 */
 
 // User Types

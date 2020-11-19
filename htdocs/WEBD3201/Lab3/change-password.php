@@ -1,8 +1,7 @@
 <?php
 $title = "Change Password";
 $file = "change-password.php";
-$description = "This page presents a call input form that allows salespeople to input calls from their clients, and creates 
-a timestamped record of the interaction in the calls table.";
+$description = "This page contains a password reset form that confirms a new user's password by performing basic validations.";
 $date = "October 22, 2020";
 
 include "./includes/header.php";
@@ -10,50 +9,50 @@ include "./includes/header.php";
 // Redirect to sign-in page if the user is not a salesperson
 if (!$_SESSION) {
   $output .= "Sorry, you must be logged in  to access this page.";
-  setMessage($output, "success");
+  set_message($output, "success");
 
   redirect("sign-in.php");
 }
 $output = "";
+
 // Form submission logic
 // When the page first loads or is reset, create empty variables that will attempt to collect info to insert into the calls table
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  $clientId = "";
+  $client_id = "";
   $reason = "";
 }
 
 // If the user has tried to insert an entry after the page first loads, store the data values in input fields
 else if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_SESSION['email'];
-  $newPassword = trim($_POST["password"]);
-  $passwordConfirm  = trim($_POST["confirm"]);
+  $new_password = trim($_POST["password"]);
+  $password_confirm  = trim($_POST["confirm"]);
 
   // PASSWORD VALIDATIONS
-
   // Confirm that password is at least 3 characters in length
-  if (strlen($newPassword) < MIN_PASSWORD_LENGTH) {
+  if (strlen($new_password) < MIN_PASSWORD_LENGTH) {
     $output .= "Your new password must be at least 3 characters in length.";
-  } else if ($newPassword !== $passwordConfirm) {
+  } else if ($new_password !== $password_confirm) {
     $output .= "The passwords entered in both fields must match for the change to be processed.";
   }
 
   if ($output == "") {
-    $result = user_update_password($email, $newPassword);
+    $result = user_update_password($email, $new_password);
 
     // If any issues arise with entering the record into the calls database, display a notice of the failure
     if ($result == false) {
       $output .= "Sorry, this entry failed to be updated in our records.";
     } else {
       // If the query produces a result, flash a message declaring the successful creation of the call record
-      setMessage("You password was successfully updated.", "success");
-      $message = flashMessage();
+      set_message("You password was successfully updated.", "success");
+      $message = flash_message();
 
       // Log call creation event in activity logs
-      updateLogs("$email", "successfully updated their account password");
+      update_logs("$email", "successfully updated their account password");
 
       // Clear all fields once the call is successfully entered in the db
-      $newPassword = "";
-      $passwordConfirm = "";
+      $new_password = "";
+      $password_confirm = "";
     }
   }
 }
@@ -73,14 +72,14 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "name" => "password",
           "value" => "",
           "label" => "New Password",
-          "isDropdown" => false
+          "is_dropdown" => false
         ),
         array(
           "type" => "password",
           "name" => "confirm",
           "value" => "",
           "label" => "Re-Type Password",
-          "isDropdown" => false
+          "is_dropdown" => false
         )
       )
     );

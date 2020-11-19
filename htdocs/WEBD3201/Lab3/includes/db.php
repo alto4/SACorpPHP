@@ -1,10 +1,11 @@
 <?php
 /*
-    Name: Scott Alton
-    Date: October 2, 2020
-    File: db.php
-    Description: This file contains the functions used to connect to the site's postgres database, and makes use of constants imported from constants.php to do
-  */
+    Name:         Scott Alton
+    Date:         November 18, 2020
+    File:         db.php
+    Description:  This file contains the functions used to connect to and interact with the site's PostgreSQL database, 
+                  and makes use of constants imported from constants.php and several prepared statements. 
+*/
 
 // db_connect function - connects to the PostGreSQL database based on set constant values
 function db_connect()
@@ -12,7 +13,7 @@ function db_connect()
   return pg_connect("host=" . DB_HOST . " port=" . DB_PORT . " dbname=" . DATABASE . " user=" . DB_ADMIN . " password=" . DB_PASSWORD);
 }
 
-// user_select function - queries the database for id provided, returns an array containing user details if user found, or otherwise returns false
+// user_select function - queries the database for email provided, returns an array containing user details if user is found
 function user_select($email)
 {
   // Assume user does not exist
@@ -21,7 +22,7 @@ function user_select($email)
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
-  $user_select_stmt = pg_prepare($conn, "user_select_stmt", "SELECT * FROM users WHERE EmailAddress = $1");
+  $user_select_stmt = pg_prepare($conn, "user_select_stmt", "SELECT * FROM users WHERE email_address = $1");
   $result = pg_execute($conn, "user_select_stmt", array($email));
 
   // Check for a result after querying database and if one exists, save it as an array to return user data
@@ -31,34 +32,34 @@ function user_select($email)
   }
 
   // Log invalid attempt 
-  updateLogs("unknown", "attemped sign-in without a valid email");
+  update_logs("unknown", "attemped sign-in without a valid email");
 
   return false;
 }
 
-// user_authenticate function - verifies that the user's password entry matches what is stored in the database before granting access
+// user_authenticate function - verifies that the user's password entry matches what is stored in the database
 function user_authenticate($email, $password)
 {
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
-  $user_authenticate_stmt = pg_prepare($conn, "user_authenticate_stmt", "SELECT * FROM users WHERE EmailAddress = $1");
+  $user_authenticate_stmt = pg_prepare($conn, "user_authenticate_stmt", "SELECT * FROM users WHERE email_address = $1");
   $result = pg_execute($conn, "user_authenticate_stmt", array($email));
   $records = pg_num_rows($result);
 
   // Match entered id against ids that exist in the database
   if ($records > 0) {
-    // Check entered password against the password associated with the entered id that exists in the database
+    // Check entered password against the password associated with the id
     if ($password == pg_fetch_result($result, 0, "password") || password_verify($password, pg_fetch_result($result, 0, "password"))) {
       // Start a new session upon authentication
       session_start();
 
-      // Log valid login 
-      updateLogs($email, "successful sign-in");
+      // Log valid login event 
+      update_logs($email, "successful sign-in");
 
       // If email and password are authenticated, output a welcome message to the user with a brief summary of their account activity
-      $output = "Welcome back! Your account is associated with the email address " . pg_fetch_result($result, 0, "emailaddress") . " and you were last logged in on " . pg_fetch_result($result, 0, "lastaccess") . ".";
-      setMessage($output, "success");
+      $output = "Welcome back! Your account is associated with the email address " . pg_fetch_result($result, 0, "email_address") . " and you were last logged in on " . pg_fetch_result($result, 0, "last_access") . ".";
+      set_message($output, "success");
 
       header('Location: dashboard.php');
 
@@ -79,52 +80,59 @@ function user_authenticate($email, $password)
     }
     // If password does not match the corresponding id, output an error message
     else {
-      updateLogs($email, "unsuccessful login due to bad password");
+      update_logs($email, "unsuccessful login due to bad password");
       return false;
     }
   }
   return false;
 }
 
+// salesperson_select_id function - accepts a salesperson's email and retrieves their corresponding salesperson id
 function salesperson_select_id($email)
 {
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
-  $salesperson_select_id_stmt = pg_prepare($conn, "salesperson_select_id_stmt", "SELECT * FROM salespeople WHERE EmailAddress = $1");
+  // Prepared statement for selecting a salesperson's information from the database
+  $salesperson_select_id_stmt = pg_prepare($conn, "salesperson_select_id_stmt", "SELECT * FROM salespeople WHERE email_address = $1");
   $id = pg_fetch_result(pg_execute($conn, "salesperson_select_id_stmt", array($email)), 0, "id");
 
   return $id;
 }
 
-// update_last_login function - accepts a logged in users id/email and updates the database record of their most recent sign in
+// update_last_login function - accepts a logged in users id and updates the database record of their most recent sign in
 function update_last_login($id)
 {
   $conn = db_connect();
 
   // Generate a time stamp
-  $timeStamp =  date("Y-m-d G:i:s");
+  $timestamp =  date("Y-m-d G:i:s");
 
   // Update last login time
-  $user_update_login_time_stmt = pg_prepare($conn, "user_update_login_time_stmt", "UPDATE users SET LastAccess = $1 WHERE EmailAddress = $2");
+  $user_update_login_time_stmt = pg_prepare($conn, "user_update_login_time_stmt", "UPDATE users SET last_access = $1 WHERE email_address = $2");
 
-  $result = pg_execute($conn, "user_update_login_time_stmt", array($timeStamp, $id));
+  $result = pg_execute($conn, "user_update_login_time_stmt", array($timestamp, $id));
 }
 
-// LAB #3 DATABASE FUNCTION
-function client_select_all($salespersonId)
+// LAB #3 DATABASE FUNCTIONS
+// client_select_all - selects the data for all client associated with the passed in salesperson id
+function client_select_all($salesperson_id)
 {
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
-  if ($salespersonId == "all") {
+  // Prepared statement for selecting all clients from the database if user has admin privileges
+  if ($salesperson_id == "all") {
     $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients");
     $result = pg_execute($conn, "client_select_all_stmt", array());
+
+    // Prepared statement for selecting clients associated with the logged in salespersons account
   } else {
-    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients WHERE salespersonId = $1");
-    $result = pg_execute($conn, "client_select_all_stmt", array($salespersonId));
+    $client_select_all_stmt = pg_prepare($conn, "client_select_all_stmt", "SELECT * FROM clients WHERE salesperson_id = $1");
+    $result = pg_execute($conn, "client_select_all_stmt", array($salesperson_id));
   }
+
+  // Fetch all rows from query results
   $rows = pg_fetch_all($result);
+
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if ($rows) {
     return $rows;
@@ -133,7 +141,7 @@ function client_select_all($salespersonId)
   return false;
 }
 
-// client_select function - queries the database for id provided, returns an array containing user details if user found, or otherwise returns false
+// client_select function - queries the database for id provided, returns an array containing user details if user found
 function client_select($email)
 {
   // Assume user does not exist
@@ -141,8 +149,8 @@ function client_select($email)
 
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
-  $client_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients WHERE EmailAddress = $1");
+  // Prepared statement for selecting an individal client from the database
+  $client_select_stmt = pg_prepare($conn, "client_select_stmt", "SELECT * FROM clients WHERE email_address = $1");
   $result = pg_execute($conn, "client_select_stmt", array($email));
 
   // Check for a result after querying database and if one exists, return true
@@ -150,22 +158,23 @@ function client_select($email)
     return true;
   }
 
-  // Log invalid attempt 
-  updateLogs("User", "attemped new client input with the email $email that already exists in our records.");
+  // Log invalid attempt if client email already exists in records
+  update_logs("User", "attemped new client input with the email $email that already exists in our records.");
 
   return false;
 }
 
-// salespeople_select_all prepared statement 
+// salespeople_select_all prepared statement - selects all salesperson data from the database
 function salespeople_select_all()
 {
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
+  // Prepared statement for selecting all salespeople from the database
   $salespeople_select_stmt = pg_prepare($conn, "salespeople_select_stmt", "SELECT * FROM salespeople");
   $result = pg_execute($conn, "salespeople_select_stmt", array());
 
   $rows = pg_fetch_all($result);
+
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if ($rows) {
     return $rows;
@@ -174,22 +183,22 @@ function salespeople_select_all()
   return false;
 }
 
-// calls_select_all prepared statement 
-function calls_select_all($salespersonId)
+// calls_select_all prepared statement - selects all call data from the database associated with a salesperson's id
+function calls_select_all($salesperson_id)
 {
   $conn = db_connect();
 
   // Prepared statement for selecting a user from the database
   $calls_select_stmt = pg_prepare($conn, "calls_select_stmt", "
-    SELECT calls.Id, calls.ClientId, calls.Date, calls.Reason, clients.SalespersonID 
+    SELECT calls.id, calls.client_id, calls.date, calls.reason, clients.salesperson_id 
     FROM calls 
     INNER JOIN clients 
-    ON calls.ClientId = clients.Id
-    WHERE clients.SalespersonId = $salespersonId");
+    ON calls.client_id = clients.id
+    WHERE clients.salesperson_id = $salesperson_id");
   $result = pg_execute($conn, "calls_select_stmt", array());
   $rows = pg_fetch_all($result);
-  // Check for a result after querying database and if one exists, save it as an array to return user data
 
+  // Check for a result after querying database and if one exists, return call data
   if ($rows) {
     return $rows;
   }
@@ -198,19 +207,24 @@ function calls_select_all($salespersonId)
 }
 
 // client_count prepared - returns the number of entries in the clients table
-function client_count($salespersonId)
+function client_count($salesperson_id)
 {
   $conn = db_connect();
 
-  if ($salespersonId == "all") {
-    // Prepared statement for selecting a user from the database filtered by salesperson ID
+  // Determine how to count client total based on user being an admin who can see all clients, 
+  // or a salesperson who can only see their own
+  if ($salesperson_id == "all") {
+
+    // Prepared statement for selecting count of all clients overall
     $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients");
     $result = pg_execute($conn, "client_count_stmt", array());
   } else {
-    // Prepared statement for selecting a user from the database filtered by salesperson ID
-    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salespersonId = $1");
-    $result = pg_execute($conn, "client_count_stmt", array($salespersonId));
+
+    // Prepared statement for selecting count of clients for a specific salesperson
+    $clients_select_stmt = pg_prepare($conn, "client_count_stmt", "SELECT * FROM clients WHERE salesperson_id = $1");
+    $result = pg_execute($conn, "client_count_stmt", array($salesperson_id));
   }
+
   // Check for a result after querying database and if one exists, save it as an array to return user data
   if (pg_num_rows($result) >= 1) {
     return pg_num_rows($result);
@@ -224,8 +238,8 @@ function salespeople_count()
 {
   $conn = db_connect();
 
-  // Prepared statement for selecting a user from the database
-  $salespeople_select_stmt = pg_prepare($conn, "salespeople_count_stmt", "SELECT * FROM salespeople");
+  // Prepared statement for selecting the total number of salespeople 
+  $salespeople_count_stmt = pg_prepare($conn, "salespeople_count_stmt", "SELECT * FROM salespeople");
   $result = pg_execute($conn, "salespeople_count_stmt", array());
 
   // Check for a result after querying database and if one exists, save it as an array to return user data
@@ -236,20 +250,22 @@ function salespeople_count()
   return false;
 }
 
-// calls_count prepared statement - returns the number of entries in the calls table
-function calls_count($salespersonId)
+// calls_count prepared statement - returns the number of entries in the calls table made by a logged in 
+// salesperson's clients
+function calls_count($salesperson_id)
 {
   $conn = db_connect();
-  // Prepared statement for selecting a user from the database
+
+  // Prepared statement for selecting all client calls from the database
   $calls_select_stmt = pg_prepare($conn, "calls_count_stmt", "
     SELECT *
     FROM calls 
     INNER JOIN clients 
-    ON calls.ClientId = clients.Id
-    WHERE clients.SalespersonId = $salespersonId");
+    ON calls.client_id = clients.id
+    WHERE clients.salesperson_id = $salesperson_id");
   $result = pg_execute($conn, "calls_count_stmt", array());
 
-  // Check for a result after querying database and if one exists, save it as an array to return user data
+  // Check for a result, and if query yields result, return the number of rows
   if (pg_num_rows($result) >= 1) {
     return pg_num_rows($result);
   }
@@ -257,13 +273,14 @@ function calls_count($salespersonId)
   return false;
 }
 
-// call_create prepared statement
+// call_create prepared statement - creates a new interaction in the calls table
 function call_create($client, $time, $reason)
 {
   $conn = db_connect();
+
   // Prepared statement for creating a new call record
   $calls_select_stmt = pg_prepare($conn, "call_create_stmt", "
-    INSERT INTO calls(ClientId, Date, Reason) VALUES (
+    INSERT INTO calls(client_id, date, reason) VALUES (
       '$client',
       '$time',
       '$reason'
@@ -271,48 +288,56 @@ function call_create($client, $time, $reason)
   ");
 
   $result = pg_execute($conn, "call_create_stmt", array());
+
+  // If the new call is successfully entered
   if ($result) {
     return true;
   }
 
+  // If the new record fails to be inserted
   return false;
 }
 
-// client_create prepared statement
-function client_create($firstName, $lastName, $salespersonId, $email, $phone, $type, $logoUrl)
+// client_create prepared statement - creates a new client record in the clients table
+function client_create($first_name, $last_name, $salesperson_id, $email, $phone, $type, $logo_url)
 {
   $conn = db_connect();
+
   // Prepared statement for creating a new client record
   $client_create_stmt = pg_prepare($conn, "client_create_stmt", "
-    INSERT INTO clients(FirstName, LastName, SalespersonId, EmailAddress, PhoneNumber, Type, logo_path) VALUES (
-      '$firstName',
-      '$lastName',
-      '$salespersonId',
+    INSERT INTO clients(first_name, last_name, salesperson_id, email_address, phone_number, type, logo) VALUES (
+      '$first_name',
+      '$last_name',
+      '$salesperson_id',
       '$email',
       '$phone',
       '$type',
-      '$logoUrl'
+      '$logo_url'
     )
   ");
 
   $result = pg_execute($conn, "client_create_stmt", array());
+
+  // If the new client is successfully created
   if ($result) {
     return true;
   }
 
+  // If the new record fails to be inserted
   return false;
 }
 
-// client_create prepared statement
-function salesperson_create($firstName, $lastName, $email, $password, $phone, $extension, $type)
+// salesperson_create prepared statement - creates a new salesperson record in the salesperson table
+function salesperson_create($first_name, $last_name, $email, $password, $phone, $extension, $type)
 {
   $conn = db_connect();
   $timeStamp =  date("Y-m-d G:i:s");
-  // Prepared statement for creating a new client record
+
+  // Prepared statement for creating a new salesperson record
   $salesperson_create_stmt = pg_prepare($conn, "salesperson_create_stmt", "
-    INSERT INTO salespeople(FirstName, LastName, EmailAddress, Password, PhoneNumber, PhoneExt, Type) VALUES (
-      '$firstName',
-      '$lastName',
+    INSERT INTO salespeople(first_name, last_name, email_address, password, phone_number, phone_ext, type) VALUES (
+      '$first_name',
+      '$last_name',
       '$email',
       '$password',
       '$phone',
@@ -321,29 +346,33 @@ function salesperson_create($firstName, $lastName, $email, $password, $phone, $e
     )
   ");
 
-  $resultSalespersonEntry = pg_execute($conn, "salesperson_create_stmt", array());
-  $resultUserEntry = user_create($firstName, $lastName, $email, $password, $phone, $extension, $type);
+  // Store the results of the creation of the new salesperson entry in the both the salespeople and the users tables
+  $result_salesperson_entry = pg_execute($conn, "salesperson_create_stmt", array());
+  $result_user_entry = user_create($first_name, $last_name, $email, $password, $phone, $extension, $type);
 
-  if ($resultSalespersonEntry == true && $resultUserEntry == true) {
+  // Ensure that the record is successful in both tables
+  if ($result_salesperson_entry == true && $result_user_entry == true) {
     return true;
   }
 
+  // If record is not successfully inserted into both tables return false
   return false;
 }
 
-// user_create prepared statement
-function user_create($firstName, $lastName, $email, $password, $phone, $extension, $type)
+// user_create prepared statement - creates a new user record in the users table
+function user_create($first_name, $last_name, $email, $password, $phone, $extension, $type)
 {
   $conn = db_connect();
-  $timeStamp =  date("Y-m-d G:i:s");
-  // Prepared statement for creating a new client record
+  $timestamp =  date("Y-m-d G:i:s");
+
+  // Prepared statement for creating a new user record
   $user_create_stmt = pg_prepare($conn, "user_create_stmt", "      
-    INSERT INTO users (FirstName, LastName, EmailAddress, Password,  EnrolDate, Enabled, Type) VALUES (
-      '$firstName', 
-      '$lastName',
+    INSERT INTO users (first_name, last_name, email_address, password,  enrol_date, enabled, type) VALUES (
+      '$first_name', 
+      '$last_name',
       '$email',
-      '$password',
-      '$timeStamp',
+      crypt('$password' , gen_salt('bf')),
+      '$timestamp',
       true, 
       '$type' 
     )
@@ -351,56 +380,73 @@ function user_create($firstName, $lastName, $email, $password, $phone, $extensio
 
   $result = pg_execute($conn, "user_create_stmt", array());
 
+  // If the user record is successfully created 
   if ($result) {
     return true;
   }
 
+  // If the user record is unsuccessful
   return false;
 }
 
-// user_update_password prepared statement
-function user_update_password($email, $newPassword)
+// user_update_password prepared statement - updates an existing users password in the users table
+function user_update_password($email, $new_password)
 {
   $conn = db_connect();
+
   // Encrypt new password before updating in database
-  $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+  $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
 
   // Prepared statement for creating updated password in database after encyption
   $user_update_password_stmt = pg_prepare($conn, "user_update_password_stmt", "      
     UPDATE users
-    SET password = '$hashedPassword' 
-    WHERE emailAddress = '$email';
+    SET password = '$hashed_password' 
+    WHERE email_address = '$email';
   ");
 
   $result = pg_execute($conn, "user_update_password_stmt", array());
 
+  // If the password is successfully updated in the users table
   if ($result) {
     return true;
   }
 
+  // If the password update is unsuccessful
   return false;
 }
 
-// user_dropdown_options prepared statement
+// user_dropdown_options prepared statement - selects dropdown menu items from the specified table 
 function select_dropdown_options($name)
 {
   $conn = db_connect();
 
   // Generate the salespeople from the database as select options if that is the name passed in to the element
   if ($name == "salesperson") {
+
     // Prepared statement for selecting salesperson dropdown options
-    $table = "salespeople";
-    $salesperson_dropdown_select_stmt = pg_prepare($conn, "salesperson_dropdown_select_stmt", "SELECT Id, FirstName, LastName FROM $table;");
+    $salesperson_dropdown_select_stmt = pg_prepare(
+      $conn,
+      "salesperson_dropdown_select_stmt",
+      "SELECT id, first_name, last_name FROM salespeople;"
+    );
+
     $result = pg_execute($conn, "salesperson_dropdown_select_stmt", array());
 
-    // Generate the clients from the database as select options if salesperson is logged in by filtering only their clients
+    // Generate the clients from the database as select options if salesperson is logged in 
+    // by filtering only their clients
   } else if ($name == "client" && $_SESSION['type'] == "a") {
+
     // Prepared statement for selecting salesperson dropdown options
-    $table = "clients";
-    $SalespersonId = $_SESSION['id'];
-    $clients_dropdown_select_stmt = pg_prepare($conn, "clients_dropdown_select_stmt", "SELECT Id, FirstName, LastName FROM $table WHERE SalespersonId = $SalespersonId;");
+    $salesperson_id = $_SESSION['id'];
+    $clients_dropdown_select_stmt = pg_prepare(
+      $conn,
+      "clients_dropdown_select_stmt",
+      "SELECT id, first_name, last_name FROM clients WHERE salesperson_id = $salesperson_id;"
+    );
+
     $result = pg_execute($conn, "clients_dropdown_select_stmt", array());
   }
 
+  // Return the data required to populate dropdown menu options
   return $result;
 }

@@ -3,48 +3,49 @@ $title = "Calls";
 $file = "calls.php";
 $description = "This page presents a call input form that allows salespeople to input calls from their clients, and creates 
 a timestamped record of the interaction in the calls table.";
-$date = "October 22, 2020";
+$date = "November 18, 2020";
 
 include "./includes/header.php";
 
 // Redirect to sign-in page if the user is not a salesperson
 if ($_SESSION['type'] != "a") {
     $output .= "Sorry, you must be logged in as a salesperson to access this page.";
-    setMessage($output, "success");
+    set_message($output, "success");
 
     redirect("sign-in.php");
 } else {
-    $salespersonId = $_SESSION['id'];
+    $salesperson_id = $_SESSION['id'];
 }
 
 // Form submission logic
 // When the page first loads or is reset, create empty variables that will attempt to collect info to insert into the calls table
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $clientId = "";
+    $client_id = "";
     $reason = "";
 }
 
 // If the user has tried to insert an entry after the page first loads, store the data values in input fields
 else if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $clientId = trim($_POST["client"]);
-    $reason  = trim($_POST["reason"]);
-    $timeStamp =  date("Y-m-d G:i:s");
+    $client_id = trim($_POST["client"]);
+    $reason = trim($_POST["reason"]);
+    $time_stamp =  date("Y-m-d G:i:s");
     $output = "";
-    
-    $result = call_create($clientId, $timeStamp, $reason);
+
+    $result = call_create($client_id, $time_stamp, $reason);
+
     // If any issues arise with entering the record into the calls database, display a notice of the failure
     if ($result == false) {
         $output .= "Sorry, this entry failed to be inserted into the records.";
     } else {
         // If the query produces a result, flash a message declaring the successful creation of the call record
-        setMessage("The client interaction was successfully registered into our records.", "success");
-        $message = flashMessage();
+        set_message("The client interaction was successfully registered into our records.", "success");
+        $message = flash_message();
 
         // Log call creation event in activity logs
-        updateLogs("$clientId", "successfully added a call with client #$clientId to records");
+        update_logs("$client_id", "successfully added a call with client #$client_id to records");
 
         // Clear all fields once the call is successfully entered in the db
-        $clientId = "";
+        $client_id = "";
         $reason = "";
     }
 }
@@ -63,14 +64,14 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "name" => "client",
                 "value" => "",
                 "label" => "Client",
-                "isDropdown" => true
+                "is_dropdown" => true
             ),
             array(
                 "type" => "reason",
                 "name" => "reason",
                 "value" => "",
                 "label" => "Reason for Inquiry",
-                "isDropdown" => false
+                "is_dropdown" => false
             )
         )
     );
@@ -82,12 +83,12 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     display_table(
         array(
             "id" => "ID",
-            "clientid" => "Client Id",
+            "client_id" => "Client Id",
             "date" => "Date",
             "reason" => "Reason for Inquiry"
         ),
-        calls_select_all($salespersonId),
-        calls_count($salespersonId),
+        calls_select_all($salesperson_id),
+        calls_count($salesperson_id),
         1
     );
     ?>
