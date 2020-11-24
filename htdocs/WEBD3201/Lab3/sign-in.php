@@ -45,8 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 ?>
 
 <div class="text-align-center">
-    <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
-    <h5 class='text-danger'><?php echo $message; ?></h5>
+    <h1>Sign In</h1>
+    <div class="container d-flex justify-content-center w-100">
+        <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
+    </div>
     <h5 class="text-danger"><?php echo $output; ?></h5>
 
     <div>

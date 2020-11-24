@@ -170,7 +170,7 @@ function salespeople_select_all()
   $conn = db_connect();
 
   // Prepared statement for selecting all salespeople from the database
-  $salespeople_select_stmt = pg_prepare($conn, "salespeople_select_stmt", "SELECT * FROM salespeople");
+  $salespeople_select_stmt = pg_prepare($conn, "salespeople_select_stmt", "SELECT salespeople.*, users.id AS user_id FROM salespeople JOIN users ON salespeople.email_address = users.email_address");
   $result = pg_execute($conn, "salespeople_select_stmt", array());
 
   $rows = pg_fetch_all($result);
@@ -190,7 +190,7 @@ function calls_select_all($salesperson_id)
 
   // Prepared statement for selecting a user from the database
   $calls_select_stmt = pg_prepare($conn, "calls_select_stmt", "
-    SELECT calls.id, calls.client_id, calls.date, calls.reason, clients.salesperson_id 
+    SELECT calls.id, calls.client_id, clients.first_name, clients.last_name, calls.date, calls.reason, clients.salesperson_id 
     FROM calls 
     INNER JOIN clients 
     ON calls.client_id = clients.id
@@ -436,7 +436,7 @@ function select_dropdown_options($name)
     // by filtering only their clients
   } else if ($name == "client" && $_SESSION['type'] == "a") {
 
-    // Prepared statement for selecting salesperson dropdown options
+    // Prepared statement for selecting client dropdown options
     $salesperson_id = $_SESSION['id'];
     $clients_dropdown_select_stmt = pg_prepare(
       $conn,
@@ -448,5 +448,17 @@ function select_dropdown_options($name)
   }
 
   // Return the data required to populate dropdown menu options
+  return $result;
+}
+
+// LAB #4 Functions
+function salesperson_id_select($email) {
+  $conn = db_connect();
+
+  // Prepared statement for selecting a salesperson's user id from the database
+  $user_id_select_stmt = pg_prepare($conn, "user_id_select_stmt", "SELECT id FROM users WHERE email_address = $1");
+  $result = pg_execute($conn, "user_id_select_stmt", array($email));
+  echo '<h1>USER ID: ' . var_dump($result) . '</h1>';
+
   return $result;
 }

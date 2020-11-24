@@ -30,29 +30,32 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // PASSWORD VALIDATIONS
   // Confirm that password is at least 3 characters in length
-  if (strlen($new_password) < MIN_PASSWORD_LENGTH) {
+  if (strlen($new_password) < MIN_PASSWORD_LENGTH) 
+  {
     $output .= "Your new password must be at least 3 characters in length.";
-  } else if ($new_password !== $password_confirm) {
+  }
+  else if ($new_password !== $password_confirm) 
+  {
     $output .= "The passwords entered in both fields must match for the change to be processed.";
   }
 
-  if ($output == "") {
+  if ($output == "") 
+  {
     $result = user_update_password($email, $new_password);
 
     // If any issues arise with entering the record into the calls database, display a notice of the failure
     if ($result == false) {
       $output .= "Sorry, this entry failed to be updated in our records.";
-    } else {
-      // If the query produces a result, flash a message declaring the successful creation of the call record
-      set_message("You password was successfully updated.", "success");
-      $message = flash_message();
-
-      // Log call creation event in activity logs
+    } 
+    else 
+    {
+      
+      // If the query produces a result, log password update event in activity logs
       update_logs("$email", "successfully updated their account password");
-
-      // Clear all fields once the call is successfully entered in the db
-      $new_password = "";
-      $password_confirm = "";
+      
+      // Redirect user to the dashboard and flash a message declaring the successful password update
+      set_message("You password was successfully updated.", "success");
+      header('Location: dashboard.php');
     }
   }
 }

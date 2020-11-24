@@ -16,7 +16,8 @@ if ($_SESSION) {
 
   // Log sign out event
   update_logs($email, "sign-out");
+  set_message("Successfully logged out", "success");
 }
 
 // Redirect the signed out user to the sign-in page if they would like access to restricted pages
-redirect("sign-in.php");
+header("Location: sign-in.php");

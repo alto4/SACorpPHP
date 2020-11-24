@@ -35,6 +35,9 @@
 
     -->
 
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+
   <!-- Bootstrap core CSS -->
   <link href="./css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,7 +48,7 @@
 
 <body>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0 text-success" href="./index.php">&lt; S / A &gt; Corp.</a>
+    <a class="navbar-brand col-3 col-lg-2 pl-4 mr-0 text-success bg-dark" href="./index.php"><i class="fa fa-laptop"></i>&lt; S / A &gt; Corp.</a>
     <ul class="navbar-nav px-3">
       <?php
 
@@ -131,6 +134,14 @@
                 </li>
               ';
             }
+
+            // Give user the option to navigate to the reset page
+            echo '
+              <li class="nav-item my-2">
+                <a class="nav-link btn btn-success mx-3 text-center round" href="reset.php">Reset</a>
+              </li>
+            ';
+            
             ?>
           </ul>
         </div>

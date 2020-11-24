@@ -104,9 +104,9 @@ function display_form($elements)
     // Check for flag that determines if a form element needs to be processed as a dropdown 
     if ($dropdown == true) {
 
-      if ($name == "salesperson") {
+      if ($name == "salesperson_id") {
         $result = select_dropdown_options("salesperson");
-        echo '<select name="client" class="d-block w-100 p-2 form-control my-3">';
+        echo '<select name="salesperson_id" class="d-block w-100 p-2 form-control my-3">';
       } else if ($name == "client" && $_SESSION['type'] == "a") {
         $result = select_dropdown_options("client");
         echo '<select name="client" class="d-block w-100 p-2 form-control my-3">';
@@ -154,8 +154,8 @@ function display_table($data_fields, $data, $num_of_rows, $page)
   $rows_on_last_page = $num_of_rows % RECORDS_PER_PAGE;
 
   // Begin table output
-  echo '<div class="table-responsive w-75 mx-auto py-3">
-          <table class="table table-dark table-bordered table-sm">
+  echo '<div id="data-table" class="table-responsive w-75 mx-auto py-3">
+          <table class="table table-dark table-bordered table-sm table-striped">
               <thead>
               <tr>';
 
@@ -173,7 +173,7 @@ function display_table($data_fields, $data, $num_of_rows, $page)
   $keys = array_keys($data_fields);
 
   // Check if the final page of table data has been selected to avoid overflow beyond the databases final row
-  if ($page == $num_of_pages) {
+  if ($page == $num_of_pages && $rows_on_last_page % RECORDS_PER_PAGE !== 0) {
 
     // Loop through each record to display contents as a table row
     for ($i = $starting_record; $i < $starting_record + $rows_on_last_page; $i++) {
@@ -188,6 +188,28 @@ function display_table($data_fields, $data, $num_of_rows, $page)
         // Check for instance where the current column is a logo, and display a logo image rather than textual data if so
         if ($keys[$j] == "logo" && $row[$col] != "") {
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
+        
+        // Check for instance where current column contains active/inactive form
+        } else if ($keys[$j] == "type") {
+          // DEBUG BINDING DB DATA TO FORM ELEMENTS/STATUS
+          $user_id = $data[$i]['user_id'];
+          
+          echo '<h1 class="text-danger">DEBUG:' . $user_id . '</h1>';
+          echo '
+            <td class="py-2">'. 
+              '<form method="POST" action="/salespeople.php">
+                <div>
+                  <input type="radio" name="active[' . $user_id . ']" value="Active" checked>
+                  <label for="' . $user_id . '-Active">Active</label>
+                </div> 
+                <div>
+                  <input type="radio" name="inactive[' . $user_id . ']" value="Inactive">
+                  <label for="' . $user_id . '-Inactive">Inactive</label>
+                </div> 
+                <input type="submit" value="Update" />
+              </form> 
+              Current Status: '. $row[$col] . 
+            "</td>";
         } else {
           // Display regular textual data
           echo '
@@ -207,7 +229,7 @@ function display_table($data_fields, $data, $num_of_rows, $page)
         $col = $keys[$j];
 
         // Check for instance where the current column is a logo, and display a logo image rather than textual data if so
-        if ($keys[$j] == "logo_path" && $row[$col] != "") {
+        if ($keys[$j] == "logo" && $row[$col] != "") {
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
         } else {
           echo '
@@ -223,8 +245,19 @@ function display_table($data_fields, $data, $num_of_rows, $page)
           </table>
           ';
 
-  // Create pagination navigation buttons
+  // Create pagination nav buttons
+  // Show previous button if not on first page of records 
+  if ($page > 1) {
+    echo '<a class="btn btn-dark mx-1" href="?page=' . ($page - 1) . '#data-table"><i class="fa fa-arrow-left"></i></a>';
+  }
+
+  // Create a link button for each page of records
   for ($i = 1; $i <= $num_of_pages; $i++) {
-    echo '<a class="btn btn-dark mx-1" href="?page=' . $i . '" >' . $i . '</a>';
+    echo '<a class="btn btn-dark mx-1" href="?page=' . $i . '#data-table" >' . $i . '</a>';
+  }
+
+  // Show next button if not on the last page of records
+  if ($page < $num_of_pages) {
+    echo '<a class="btn btn-dark mx-1" href="?page=' . ($page + 1) . '#data-table"><i class="fa fa-arrow-right"></i></a>';
   }
 }

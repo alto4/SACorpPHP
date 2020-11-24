@@ -53,9 +53,11 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h1>New Calls</h1>
 
-<p class="w-75 lead mx-auto">Please enter the details of any customer calls in the form below. Each salesperson assigned to a particular customer is responsible for handling their customer's inquiry.</h6>
+<p class="w-75 lead mx-auto">Please enter the details of any customer calls in the form below. Each salesperson assigned to a particular customer is responsible for handling their customer's inquiry.</p>
 
     <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
+
+    
     <?php
     display_form(
         array(
@@ -84,6 +86,8 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         array(
             "id" => "ID",
             "client_id" => "Client Id",
+            "first_name" => "First Name",
+            "last_name" => "Last Name",
             "date" => "Date",
             "reason" => "Reason for Inquiry"
         ),

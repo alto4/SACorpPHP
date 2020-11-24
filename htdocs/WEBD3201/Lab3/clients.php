@@ -174,8 +174,8 @@ if ($output == "") {
                 ),
                 array(
                     "type" => "select",
-                    "name" => "salesperson",
-                    "value" => "",
+                    "name" => "salesperson_id",
+                    "value" => $salesperson_id,
                     "label" => "Salesperson",
                     "is_dropdown" => true
                 ),
@@ -256,6 +256,7 @@ if ($output == "") {
             "email_address" => "Email Address",
             "first_name" => "First Name",
             "last_name" => "Last Name",
+            "salesperson_id" => "Salesperson",
             "phone_number" => "Phone Number",
             "logo" => "Logo"
         ),

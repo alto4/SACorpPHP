@@ -10,7 +10,7 @@ body {
 
 /*
    * Sidebar
-   */
+*/
 
 .sidebar {
   position: fixed;
@@ -157,4 +157,14 @@ a:hover {
 .logo-thumbnail {
   width: 60px;
   height: 60px;
+}
+
+/* Custom Styles */
+h1 {
+  text-decoration: underline;
+  text-decoration-color: #28a745;
+}
+
+#privacy-policy p {
+  font-size: 1rem !important;
 }

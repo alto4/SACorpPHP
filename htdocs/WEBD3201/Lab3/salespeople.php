@@ -212,6 +212,7 @@ display_table(
         "first_name" => "First Name",
         "last_name" => "Last Name",
         "email_address" => "Email Address",
+        "type" => "Is Active?",
         "phone_number" => "Phone Number",
         "phone_ext" => "Phone Ext."
     ),

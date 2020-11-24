@@ -1,0 +1,48 @@
+sign-out event at 00:03:10 20201124. User scottalton@gmail.com sign-out.
+successfully sent reset email to account with the email event at 00:07:14 20201124. User scottaltonmusic@gmail.com successfully sent reset email to account with the email.
+successfully sent reset email to account with the email event at 00:07:28 20201124. User scottalton@gmail.com successfully sent reset email to account with the email.
+successfully sent reset email to account with the email event at 00:08:14 20201124. User scottaltonmusic@gmail.com successfully sent reset email to account with the email.
+attemped sign-in without a valid email event at 00:08:23 20201124. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 00:08:23 20201124. User sa3@c3p0.ca SECURITY ALERT! unsuccessful request made to reset account with the email.
+attemped sign-in without a valid email event at 08:34:53 20201124. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:34:53 20201124. User tester@gmail.com SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account with the email event at 08:35:03 20201124. User scottaltonmusic@gmail.com successfully sent reset email to account with the email.
+attemped sign-in without a valid email event at 08:36:26 20201124. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:36:26 20201124. User f@f.c SECURITY ALERT! unsuccessful request made to reset account with the email.
+successful sign-in event at 08:36:36 20201124. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 08:39:32 20201124. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:39:32 20201124. User face.book@fb.ca SECURITY ALERT! unsuccessful request made to reset account with the email.
+sign-out event at 08:40:30 20201124. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:42:43 20201124. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 08:43:01 20201124. User scottalton@gmail.com successfully updated their account password.
+successful sign-in event at 08:49:31 20201124. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 09:11:25 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:11:25 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:11:25 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:48 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:48 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:48 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:49 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:49 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:12:49 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:42 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:42 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:42 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:56 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:56 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:13:56 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:14:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:14:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:14:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:05 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:05 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:05 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:15 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:15 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:15 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:17 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:18 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:18 20201124. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:16:18 20201124. User unknown attemped sign-in without a valid email.
