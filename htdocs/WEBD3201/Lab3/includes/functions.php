@@ -131,7 +131,7 @@ function display_form($elements)
 
   // Generate a submit button 
   echo '<hr />
-      <button type="submit" class="btn btn-block btn-dark">Create</button>
+      <button type="submit" name="inputFormSubmit" class="btn btn-block btn-dark">Create</button>
     </form>
     </div>';
 }
@@ -190,23 +190,29 @@ function display_table($data_fields, $data, $num_of_rows, $page)
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
         
         // Check for instance where current column contains active/inactive form
-        } else if ($keys[$j] == "type") {
+        } else if ($keys[$j] == "enabled") {
           // DEBUG BINDING DB DATA TO FORM ELEMENTS/STATUS
           $user_id = $data[$i]['user_id'];
+          $user_enabled = $data[$i]['enabled'];
           
-          echo '<h1 class="text-danger">DEBUG:' . $user_id . '</h1>';
+          
           echo '
             <td class="py-2">'. 
-              '<form method="POST" action="/salespeople.php">
+              '<form method="POST" action="./salespeople.php">
                 <div>
-                  <input type="radio" name="active[' . $user_id . ']" value="Active" checked>
+                  <input type="radio" name="active[' . $user_id . ']" value="Active" ';
+                  if($user_enabled == "t") { echo 'checked'; };
+                echo '/>
                   <label for="' . $user_id . '-Active">Active</label>
                 </div> 
                 <div>
-                  <input type="radio" name="inactive[' . $user_id . ']" value="Inactive">
+                  <input type="radio" name="inactive[' . $user_id . ']" value="Inactive" ';
+                  if($user_enabled == "f") { echo 'checked'; };
+                  
+                echo '/>
                   <label for="' . $user_id . '-Inactive">Inactive</label>
                 </div> 
-                <input type="submit" value="Update" />
+                <input type="submit" name="statusFormSubmit" value="Update" />
               </form> 
               Current Status: '. $row[$col] . 
             "</td>";
@@ -261,3 +267,4 @@ function display_table($data_fields, $data, $num_of_rows, $page)
     echo '<a class="btn btn-dark mx-1" href="?page=' . ($page + 1) . '#data-table"><i class="fa fa-arrow-right"></i></a>';
   }
 }
+

@@ -1,0 +1,19 @@
+successful sign-in event at 08:33:21 20201201. User scottalton@gmail.com successful sign-in.
+successfully sent reset email to account with the email event at 08:33:42 20201201. User scottalton@gmail.com successfully sent reset email to account with the email.
+successfully sent reset email to account with the email event at 08:33:45 20201201. User scottalton@gmail.com successfully sent reset email to account with the email.
+attemped sign-in without a valid email event at 08:44:26 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:44:44 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:51:01 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:51:27 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:52:56 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:54:06 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:55:28 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:01:14 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:01:29 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:01:39 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:04:30 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:05:00 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:05:06 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:05:18 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:05:18 20201201. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:05:19 20201201. User unknown attemped sign-in without a valid email.

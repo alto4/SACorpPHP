@@ -170,7 +170,7 @@ function salespeople_select_all()
   $conn = db_connect();
 
   // Prepared statement for selecting all salespeople from the database
-  $salespeople_select_stmt = pg_prepare($conn, "salespeople_select_stmt", "SELECT salespeople.*, users.id AS user_id FROM salespeople JOIN users ON salespeople.email_address = users.email_address");
+  $salespeople_select_stmt = pg_prepare($conn, "salespeople_select_stmt", "SELECT salespeople.*, users.id AS user_id, users.enabled FROM salespeople JOIN users ON salespeople.email_address = users.email_address");
   $result = pg_execute($conn, "salespeople_select_stmt", array());
 
   $rows = pg_fetch_all($result);
@@ -452,13 +452,34 @@ function select_dropdown_options($name)
 }
 
 // LAB #4 Functions
-function salesperson_id_select($email) {
+// disable_salesperson function - disables an active salesperson account without destroying records of their membership
+function disable_salesperson($user_id) {
+
   $conn = db_connect();
 
-  // Prepared statement for selecting a salesperson's user id from the database
-  $user_id_select_stmt = pg_prepare($conn, "user_id_select_stmt", "SELECT id FROM users WHERE email_address = $1");
-  $result = pg_execute($conn, "user_id_select_stmt", array($email));
-  echo '<h1>USER ID: ' . var_dump($result) . '</h1>';
+  // Prepared statement for selecting salesperson dropdown options
+  $disable_salesperson_stmt = pg_prepare(
+    $conn,
+    "disable_salesperson_stmt",
+    "UPDATE users SET enabled = false, type = 'd' WHERE id = $user_id;"
+  );
 
-  return $result;
+  $result = pg_execute($conn, "disable_salesperson_stmt", array());
 }
+
+// enable_salesperson function - reenables a disabled salesperson so they can once again log in to their account
+function enable_salesperson($user_id) {
+  
+  $conn = db_connect();
+
+  // Prepared statement for selecting salesperson dropdown options
+  $enable_salesperson_stmt = pg_prepare(
+    $conn,
+    "enable_salesperson_stmt",
+    "UPDATE users SET enabled = true, type = 'a' WHERE id = $user_id;"
+  );
+
+  $result = pg_execute($conn, "enable_salesperson_stmt", array());
+}
+
+disable_salesperson(1004);

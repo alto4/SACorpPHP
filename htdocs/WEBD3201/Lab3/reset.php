@@ -62,7 +62,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }  
 
        // If the query produces a result, log password update event in activity logs
-       update_logs("$email", "successfully sent reset email to account with the email");
+       update_logs("$email", "successfully sent reset email to account");
         
       set_message("A message was sent.", "success");
        

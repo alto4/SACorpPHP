@@ -29,8 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Validation output
     $output = " ";
 }
+// TODO : WORK ON NESTED FORM SUBMISSION LOGIC - CURRENTLY FLAGGING - NEED TO INCORPORATE
+//    salesperson_enable/salesperson_disable prepared statements based on values for fields in debug string
+// Nested form submssion logic - catches POST request with name of ''
+else if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["statusFormSubmit"]) {
+    $output .= "Nested form submission made. Should not impact input form validation.";
+}
+
 // If the user has tried to register a new salesperson after the page first loads, attempt to validate the provided information 
-else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["inputFormSubmit"]) {
     $password = trim($_POST["password"]);
     $first_name = trim($_POST["firstName"]);
     $last_name = trim($_POST["lastName"]);
@@ -148,6 +155,9 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     however they are granted permission to create new clients and calls in the our records.</p>
 
 
+    <h5 class="text-danger">Form submission debugging data:<br/>
+        <?php echo var_dump($_POST); ?>
+    </h5>
 
 
 <h5 class="text-danger"><?php echo $output; ?></h5>
@@ -212,7 +222,7 @@ display_table(
         "first_name" => "First Name",
         "last_name" => "Last Name",
         "email_address" => "Email Address",
-        "type" => "Is Active?",
+        "enabled" => "Is Active?",
         "phone_number" => "Phone Number",
         "phone_ext" => "Phone Ext."
     ),
