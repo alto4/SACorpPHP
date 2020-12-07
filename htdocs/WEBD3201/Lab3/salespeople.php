@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $password = "";
     $phone = "";
     $extension = "";
+    
 
     // Validation output
     $output = " ";
@@ -32,12 +33,32 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // TODO : WORK ON NESTED FORM SUBMISSION LOGIC - CURRENTLY FLAGGING - NEED TO INCORPORATE
 //    salesperson_enable/salesperson_disable prepared statements based on values for fields in debug string
 // Nested form submssion logic - catches POST request with name of ''
-else if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["statusFormSubmit"]) {
-    $output .= "Nested form submission made. Should not impact input form validation.";
+else if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Update") {
+    $output = "";
+    $id = "";
+    $first_name = "";
+    $last_name = "";
+    $email  = "";
+    $password = "";
+    $phone = "";
+    $extension = "";
+        
+    $id = (array_keys($_POST['active'])[0]); 
+    $status = $_POST['active'][$id];
+
+    // Filter status update to trigger corresponding prepared statement 
+    if($status == "t") {
+        enable_salesperson($id);
+    } else {
+        disable_salesperson($id);
+    }
+
+    // echo "Salesperson ID: $id";
+    // echo "<br/>Updated Active to: $status";
 }
 
 // If the user has tried to register a new salesperson after the page first loads, attempt to validate the provided information 
-else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["inputFormSubmit"]) {
+else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create") {
     $password = trim($_POST["password"]);
     $first_name = trim($_POST["firstName"]);
     $last_name = trim($_POST["lastName"]);
@@ -153,12 +174,6 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["inputFormSubmit"]) {
 
 <p class="w-75 lead mx-auto">When a new salesperson is hired, please ensure that they are promptly entered as a user in the system. Salespeople cannot enter other salespeople,
     however they are granted permission to create new clients and calls in the our records.</p>
-
-
-    <h5 class="text-danger">Form submission debugging data:<br/>
-        <?php echo var_dump($_POST); ?>
-    </h5>
-
 
 <h5 class="text-danger"><?php echo $output; ?></h5>
 <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>

@@ -160,7 +160,8 @@ a:hover {
 }
 
 /* Custom Styles */
-h1 {
+h1,
+h2 {
   text-decoration: underline;
   text-decoration-color: #28a745;
 }

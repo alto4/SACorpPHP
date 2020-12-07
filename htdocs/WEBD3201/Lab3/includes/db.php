@@ -481,5 +481,3 @@ function enable_salesperson($user_id) {
 
   $result = pg_execute($conn, "enable_salesperson_stmt", array());
 }
-
-disable_salesperson(1004);

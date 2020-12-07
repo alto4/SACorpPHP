@@ -36,12 +36,10 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Check if email is registered in the users database
       if(user_select($email)) {      
         // The message
-        $emailContent = "You have successfully requested a reset for your account at S/A Corp registered under the email $email. Please follow this link to finish the account reset: <a href='#'>www.sacorp/reset/gtergdgdgfr</a>.
-        Thank you, and please contact a site administrator if any further issues arise.
-        Management\r\n";
+        $emailBody = "You have successfully requested a reset for your account at S/A Corp registered under the email $email. Please follow this link to finish the account reset: <a href='#'>www.sacorp/reset/gtergdgdgfr</a>. \n\nThank you, and please contact a site administrator if any further issues arise.\nManagement\n\n";
 
-        // In case any of our lines are larger than 70 characters, we should use wordwrap()
-        //$emailContent = wordwrap($message, 70, "\r\n");
+        // In case any of our lines are larger than 100 characters, we should use wordwrap()
+        $emailContent = wordwrap($emailBody, 100, "\n");
 
         // Set email headers
         $headers = 'From: accountinfo@sacorp.com' . "\r\n" .

@@ -1,0 +1,2 @@
+successful sign-in event at 12:52:09 20201207. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:35:31 20201207. User scottalton@gmail.com sign-out.

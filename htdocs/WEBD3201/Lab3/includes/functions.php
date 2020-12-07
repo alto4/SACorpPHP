@@ -131,7 +131,7 @@ function display_form($elements)
 
   // Generate a submit button 
   echo '<hr />
-      <button type="submit" name="inputFormSubmit" class="btn btn-block btn-dark">Create</button>
+      <button type="submit" name="submitType" value="Create" class="btn btn-block btn-dark">Create</button>
     </form>
     </div>';
 }
@@ -200,22 +200,21 @@ function display_table($data_fields, $data, $num_of_rows, $page)
             <td class="py-2">'. 
               '<form method="POST" action="./salespeople.php">
                 <div>
-                  <input type="radio" name="active[' . $user_id . ']" value="Active" ';
+                  <input type="radio" name="active[' . $user_id . ']" value="t" ';
                   if($user_enabled == "t") { echo 'checked'; };
                 echo '/>
                   <label for="' . $user_id . '-Active">Active</label>
                 </div> 
                 <div>
-                  <input type="radio" name="inactive[' . $user_id . ']" value="Inactive" ';
+                  <input type="radio" name="active[' . $user_id . ']" value="f" ';
                   if($user_enabled == "f") { echo 'checked'; };
                   
                 echo '/>
                   <label for="' . $user_id . '-Inactive">Inactive</label>
                 </div> 
-                <input type="submit" name="statusFormSubmit" value="Update" />
+                <input type="submit" name="submitType" value="Update" />
               </form> 
-              Current Status: '. $row[$col] . 
-            "</td>";
+            </td>';
         } else {
           // Display regular textual data
           echo '

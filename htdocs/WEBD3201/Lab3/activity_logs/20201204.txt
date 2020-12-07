@@ -1,0 +1,31 @@
+successful sign-in event at 08:14:52 20201204. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:15:31 20201204. User scottalton@gmail.com sign-out.
+successfully sent reset email to account event at 08:15:41 20201204. User scottalton@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:18:24 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:18:24 20201204. User alisonleafly@gmail.com SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:19:21 20201204. User scottalton@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:20:12 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:20:12 20201204. User test@gmail.com SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:21:10 20201204. User scottalton@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:22:01 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:22:01 20201204. User julio18@test.ca SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:22:17 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 08:23:08 20201204. User scottalton@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 08:23:59 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:25:00 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:25:00 20201204. User julio18@test.ca SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:25:19 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 08:30:44 20201204. User scottalton@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:32:10 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:32:10 20201204. User tesymcgee@gmail.com SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:32:37 20201204. User scottalton@gmail.com successfully sent reset email to account.
+unsuccessful login due to bad password event at 08:34:33 20201204. User scottalton@gmail.com unsuccessful login due to bad password.
+successfully sent reset email to account event at 08:34:40 20201204. User scottalton@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:35:26 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:35:26 20201204. User news@gmail.com SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:35:40 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+attemped sign-in without a valid email event at 08:35:46 20201204. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 08:35:46 20201204. User julio18@test.ca SECURITY ALERT! unsuccessful request made to reset account with the email.
+successfully sent reset email to account event at 08:36:06 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 08:36:15 20201204. User scottaltonmusic@gmail.com successfully sent reset email to account.
+successful sign-in event at 09:38:31 20201204. User scottalton@gmail.com successful sign-in.
