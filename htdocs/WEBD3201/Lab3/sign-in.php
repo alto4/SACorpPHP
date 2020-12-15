@@ -33,13 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $output .= "The email address " . $email . "<br/> has not been registered.";
         $email = "";
         $password = "";
+    
+    }
+
+    if ($output == "" && user_check_status($email) == false) {
+        $output = "Sorry, the account associated with the email address $email is currently disabled.<br/>Please contact a site administrator to regain access.";
+        $password = "";
     }
 
     if ($output == "" && user_authenticate($email, $password) != true) {
 
         $output .= "The password you have entered is incorrect.<br />Please try again.";
+        $email = "";
         $password = "";
     }
+
+    
 }
 
 ?>

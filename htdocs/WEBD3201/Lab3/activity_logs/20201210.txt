@@ -1,0 +1,6 @@
+successful sign-in event at 13:00:28 20201210. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:05:28 20201210. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 13:05:30 20201210. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 13:05:30 20201210. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 13:05:34 20201210. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:05:46 20201210. User scottalton@gmail.com sign-out.

@@ -1,0 +1,21 @@
+successfully sent reset email to account event at 06:56:32 20201215. User scottaltonmusic@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 06:56:47 20201215. User scottalton@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 06:59:28 20201215. User scottalton@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 07:00:06 20201215. User scottalton@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 07:10:38 20201215. User scottalton@gmail.com successfully sent reset email to account.
+successfully sent reset email to account event at 07:11:06 20201215. User scottalton@gmail.com successfully sent reset email to account.
+unsuccessful login due to bad password event at 07:12:01 20201215. User scottalton@gmail.com unsuccessful login due to bad password.
+successfully sent reset email to account event at 07:12:08 20201215. User scottaltonmusic@gmail.com successfully sent reset email to account.
+unsuccessful login due to bad password event at 07:12:53 20201215. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 07:12:57 20201215. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 07:58:07 20201215. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:01:01 20201215. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:07:29 20201215. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 08:07:37 20201215. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 08:07:37 20201215. User Aly Leag successfully created as a salesperson.
+attemped sign-in without a valid email event at 08:07:51 20201215. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 08:07:51 20201215. User Mona Lisa successfully created as a salesperson.
+attemped sign-in without a valid email event at 08:08:06 20201215. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 08:08:06 20201215. User Jerry Schmitd successfully created as a salesperson.
+attemped sign-in without a valid email event at 08:08:35 20201215. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 08:08:35 20201215. User Sam Jones successfully created as a salesperson.

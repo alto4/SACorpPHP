@@ -19,6 +19,7 @@ body {
   left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 0;
+  padding-top: 48px;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -168,4 +169,8 @@ h2 {
 
 #privacy-policy p {
   font-size: 1rem !important;
+}
+
+section {
+  overflow-x: hidden;
 }

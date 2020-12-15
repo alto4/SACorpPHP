@@ -63,7 +63,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h1>Change Password</h1>
 
-<p class="w-75 lead mx-auto">To change your password, please enter a new password below, and then verify it by retyping it in the second field.</h6>
+<p class="w-75 lead mx-auto">To change your password, please enter a new password below, and then verify it by retyping it in the second field.</p>
   <h5 class="text-danger"><?php echo $output ?></h5>
   <h5 class="text-success w-50-lg px-5 py-2"><?php echo $message; ?></h5>
   <div>

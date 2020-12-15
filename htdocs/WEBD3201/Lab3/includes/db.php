@@ -49,7 +49,6 @@ function user_authenticate($email, $password)
 
   // Match entered id against ids that exist in the database
   if ($records > 0) {
-    // Check entered password against the password associated with the id
     if ($password == pg_fetch_result($result, 0, "password") || password_verify($password, pg_fetch_result($result, 0, "password"))) {
       // Start a new session upon authentication
       session_start();
@@ -59,8 +58,8 @@ function user_authenticate($email, $password)
 
       // If email and password are authenticated, output a welcome message to the user with a brief summary of their account activity
       $output = "Welcome back! Your account is associated with the email address " . pg_fetch_result($result, 0, "email_address") . " and you were last logged in on " . pg_fetch_result($result, 0, "last_access") . ".";
+  
       set_message($output, "success");
-
       header('Location: dashboard.php');
 
       $_SESSION['email'] = $email;
@@ -480,4 +479,22 @@ function enable_salesperson($user_id) {
   );
 
   $result = pg_execute($conn, "enable_salesperson_stmt", array());
+}
+
+// user_check_status 
+function user_check_status($email){
+  $conn = db_connect();
+
+  // Prepared statement for selecting a user from the database
+  $user_check_status_stmt = pg_prepare($conn, "user_check_status_stmt", "SELECT * FROM users WHERE email_address = $1");
+  $result = pg_execute($conn, "user_check_status_stmt", array($email));
+
+  if (pg_fetch_result($result, 0, "type") == "d") {
+    // Log valid login event 
+    update_logs($email, "attempted sign-in with disabled account");
+ 
+    return false;
+  }
+
+  return true;
 }

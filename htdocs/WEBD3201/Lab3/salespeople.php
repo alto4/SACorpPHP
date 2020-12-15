@@ -70,7 +70,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create
     // PASSWORD VALIDATIONS
     // Verify that user password was entered, and if not, display an error message
     if (!isset($password) || $password == "") {
-        $output .= "You must enter a password to register this salesperson.</br>";
+        $output .= "You must enter a password to register this salesperson.<br/>";
     }
     // Check that password meets minimum length requirements
     else if (strlen("$password") < MIN_PASSWORD_LENGTH) {
@@ -81,7 +81,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create
     // FIRST NAME VALIDATIONS
     // Verify that salesperson's first name was entered, and if not, display an error message
     if (!isset($first_name) || $first_name == "") {
-        $output .= "You must enter salesperson's first name.</br>";
+        $output .= "You must enter salesperson's first name.<br/>";
     }
     // Check that the first name does not exceed the maximum field length requirements
     else if (strlen("$first_name") > MAX_FIRST_NAME_LENGTH) {
@@ -97,7 +97,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create
     // LAST NAME VALIDATIONS
     // Verify that salesperson's last name was entered, and if not, display an error message
     if (!isset($last_name) || $last_name == "") {
-        $output .= "You must enter the salesperon's last name.</br>";
+        $output .= "You must enter the salesperon's last name.<br/>";
     }
     // Check that the last name does not exceed the maximum file length requirements
     else if (strlen("$last_name") > MAX_LAST_NAME_LENGTH) {
@@ -113,7 +113,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create
     // EMAIL VALIDATIONS
     // Verify that user email was entered, and if not, display an error message
     if (!isset($email) || $email == "") {
-        $output .= "You must enter an email to for the salesperson.</br>";
+        $output .= "You must enter an email to for the salesperson.<br/>";
     }
     // Use filter_var to validate that email contains required characters
     else if (!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
@@ -132,7 +132,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submitType"] == "Create
     // PHONE 
     // Verify that salesperson phone was entered, and if not, display an error message
     if (!isset($phone) || $phone == "") {
-        $output .= "You must enter a phone number for the salesperson.</br>";
+        $output .= "You must enter a phone number for the salesperson.<br/>";
     }
     // Use filter_var to validate that email contains required characters
     else if (!(is_numeric($phone)) || strlen("$phone") < MIN_PHONE_NUM_LENGTH) {
@@ -211,7 +211,7 @@ display_form(
             "is_dropdown" => false
         ),
         array(
-            "type" => "phone",
+            "type" => "number",
             "name" => "phone",
             "value" => $phone,
             "label" => "Phone Number",

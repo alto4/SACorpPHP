@@ -1,7 +1,7 @@
 <?php
 /*
     Name: Scott Alton
-    Date: November 18, 2020
+    Date: December 15, 2020
     File: functions.php
     Description: This file contains functions that are used accross the site for flash messaging, redirecting, message logging, 
     as well as functions that are used to generate components in the UI.
@@ -116,14 +116,14 @@ function display_form($elements)
       //  unique id
       while ($menu_option = pg_fetch_assoc($result)) {
         $id = $menu_option['id'];
-        echo '<option value=' . $id . '>' . $menu_option['first_name'] . ' ' . $menu_option['last_name'] . '</option>';
+        echo '<option value="' . $id . '">' . $menu_option['first_name'] . ' ' . $menu_option['last_name'] . '</option>';
       }
 
       echo '</select>';
 
       // If the element is not flagged to be a dropdown, generate a standard input element 
     } else {
-      echo '  <input type=' . $type . ' class="form-control" name=' . $name . ' value=' . $value . '>
+      echo '  <input type="' . $type . '" class="form-control" name="' . $name . '" value="' . $value . '">
       </div>
       ';
     }
@@ -236,6 +236,32 @@ function display_table($data_fields, $data, $num_of_rows, $page)
         // Check for instance where the current column is a logo, and display a logo image rather than textual data if so
         if ($keys[$j] == "logo" && $row[$col] != "") {
           echo '<td class="py-2"><img src="' . $row[$col] . '" alt="Client Logo" class="logo-thumbnail" /></td>';
+        // Check for instance where current column contains active/inactive form
+      } else if ($keys[$j] == "enabled") {
+        // DEBUG BINDING DB DATA TO FORM ELEMENTS/STATUS
+        $user_id = $data[$i]['user_id'];
+        $user_enabled = $data[$i]['enabled'];
+        
+        
+        echo '
+          <td class="py-2">'. 
+            '<form method="POST" action="./salespeople.php">
+              <div>
+                <input type="radio" name="active[' . $user_id . ']" value="t" ';
+                if($user_enabled == "t") { echo 'checked'; };
+              echo '/>
+                <label for="' . $user_id . '-Active">Active</label>
+              </div> 
+              <div>
+                <input type="radio" name="active[' . $user_id . ']" value="f" ';
+                if($user_enabled == "f") { echo 'checked'; };
+                
+              echo '/>
+                <label for="' . $user_id . '-Inactive">Inactive</label>
+              </div> 
+              <input type="submit" name="submitType" value="Update" />
+            </form> 
+          </td>';
         } else {
           echo '
           <td class="py-2">' . $row[$col] . "</td>";
