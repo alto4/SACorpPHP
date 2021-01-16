@@ -1,0 +1,18 @@
+SENT EMAIL DETAILS
+To: scottalton@gmail.com
+From: accountinfo@sacorp.com
+Reply-To: accountinfo@sacorp.com
+Time: Tue, 15/12/20 07:14:29
+MESSAGE
+Dear User,
+
+You have successfully requested a reset for your account at S/A Corp registered under the email
+scottalton@gmail.com. This request was made on Tue, 15/12/20 at 07:14:29. Please follow this link to
+finish the account reset: www.sacorp/reset/g444532gft745g4. 
+
+Thank you, and please contact a site administrator if any further issues arise.
+
+Sincerely,
+SA Corportation
+
+

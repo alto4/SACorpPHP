@@ -1,0 +1,85 @@
+successful sign-in event at 11:33:11 20201119. User scottalton@gmail.com successful sign-in.
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:36:41 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:38:17 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:38:38 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:41:01 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:42:36 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:42:45 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:43:23 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:43:33 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:44:27 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email janeallemande@gmail.com that already exists in our records. event at 11:45:04 20201119. User User attemped new client input with the email janeallemande@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:45:17 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:46:19 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:46:51 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:49:03 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:49:27 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:49:37 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:50:26 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email 12@gov.ca that already exists in our records. event at 11:52:14 20201119. User User attemped new client input with the email 12@gov.ca that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:53:36 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:53:48 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:56:20 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:56:27 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:56:39 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:57:55 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 11:58:23 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 12:00:27 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records. event at 12:00:44 20201119. User User attemped new client input with the email scottaltonmusic@gmail.com that already exists in our records..
+successfully created as a client event at 12:00:44 20201119. User Scott Alton successfully created as a client.
+sign-out event at 12:01:03 20201119. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 12:01:10 20201119. User unknown attemped sign-in without a valid email.
+successful sign-in event at 12:01:32 20201119. User scottalton@gmail.com successful sign-in.
+attemped new client input with the email newcl@gmail.com that already exists in our records. event at 12:02:33 20201119. User User attemped new client input with the email newcl@gmail.com that already exists in our records..
+attemped new client input with the email newcl@gmail.com that already exists in our records. event at 12:05:35 20201119. User User attemped new client input with the email newcl@gmail.com that already exists in our records..
+attemped new client input with the email newcl@gmail.com that already exists in our records. event at 12:05:54 20201119. User User attemped new client input with the email newcl@gmail.com that already exists in our records..
+attemped new client input with the email newcl@gmail.com that already exists in our records. event at 12:06:04 20201119. User User attemped new client input with the email newcl@gmail.com that already exists in our records..
+attemped new client input with the email newcl@gmail.com that already exists in our records. event at 12:07:56 20201119. User User attemped new client input with the email newcl@gmail.com that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:23:41 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:24:51 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:25:00 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:26:59 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:29:40 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:29:43 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records. event at 12:31:49 20201119. User User attemped new client input with the email jacksontriggs@niagrawineries.ca that already exists in our records..
+attemped new client input with the email jasonmook@gmail.com that already exists in our records. event at 13:04:32 20201119. User User attemped new client input with the email jasonmook@gmail.com that already exists in our records..
+successfully created as a client event at 13:04:32 20201119. User Jason Mook successfully created as a client.
+successfully updated their account password event at 13:04:46 20201119. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 13:26:45 20201119. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 13:47:01 20201119. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 13:47:52 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 13:47:55 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 13:47:58 20201119. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:56:48 20201119. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 13:56:52 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 13:56:55 20201119. User scottalton@gmail.com successful sign-in.
+attemped new client input with the email samsmit@gmail.com that already exists in our records. event at 14:16:26 20201119. User User attemped new client input with the email samsmit@gmail.com that already exists in our records..
+successfully created as a client event at 14:16:26 20201119. User Sam Smit successfully created as a client.
+attemped new client input with the email sallymac@gmail.com that already exists in our records. event at 14:16:57 20201119. User User attemped new client input with the email sallymac@gmail.com that already exists in our records..
+successfully created as a client event at 14:16:57 20201119. User Sally Macarone successfully created as a client.
+attemped new client input with the email sallytanner@gmail.com that already exists in our records. event at 14:17:25 20201119. User User attemped new client input with the email sallytanner@gmail.com that already exists in our records..
+successfully created as a client event at 14:17:25 20201119. User Sally Tanner successfully created as a client.
+attemped new client input with the email piercemorgan@gmail.com that already exists in our records. event at 14:17:55 20201119. User User attemped new client input with the email piercemorgan@gmail.com that already exists in our records..
+successfully created as a client event at 14:17:55 20201119. User Pierce Morgan successfully created as a client.
+attemped new client input with the email joanmacrone@gmail.com that already exists in our records. event at 14:18:24 20201119. User User attemped new client input with the email joanmacrone@gmail.com that already exists in our records..
+successfully created as a client event at 14:18:24 20201119. User Joan Macrone successfully created as a client.
+unsuccessful login due to bad password event at 14:36:29 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 14:36:36 20201119. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:43:01 20201119. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 14:43:06 20201119. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 14:43:13 20201119. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 14:43:18 20201119. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 14:43:22 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 14:43:25 20201119. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:43:33 20201119. User scottalton@gmail.com sign-out.
+successful sign-in event at 14:43:39 20201119. User shanejones@gmail.com successful sign-in.
+attemped new client input with the email joebro@gmail.com that already exists in our records. event at 14:45:37 20201119. User User attemped new client input with the email joebro@gmail.com that already exists in our records..
+successfully created as a client event at 14:45:37 20201119. User Joseph Bromanoff successfully created as a client.
+successfully added a call with client #14 to records event at 14:45:55 20201119. User 14 successfully added a call with client #14 to records.
+successfully added a call with client #14 to records event at 14:51:43 20201119. User 14 successfully added a call with client #14 to records.
+sign-out event at 15:41:46 20201119. User shanejones@gmail.com sign-out.
+unsuccessful login due to bad password event at 15:41:51 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 15:42:03 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 15:42:06 20201119. User scottalton@gmail.com successful sign-in.
+unsuccessful login due to bad password event at 18:05:31 20201119. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 18:05:36 20201119. User scottalton@gmail.com successful sign-in.

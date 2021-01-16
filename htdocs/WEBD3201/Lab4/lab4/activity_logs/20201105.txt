@@ -1,0 +1,30 @@
+successful sign-in event at 15:38:23 20201105. User scottalton@gmail.com successful sign-in.
+successfully created as a client event at 15:42:45 20201105. User Malkie Epouvontale successfully created as a client.
+successful sign-in event at 16:40:16 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 16:40:26 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:40:33 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 16:50:51 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 16:50:52 20201105. User scottalton@gmail.com successful sign-in.
+successfully created as a salesperson event at 16:57:20 20201105. User Donald Bad successfully created as a salesperson.
+sign-out event at 17:13:05 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 17:13:11 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 18:50:39 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 18:50:42 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 19:06:13 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 19:06:21 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 19:07:52 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 19:07:54 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 19:08:20 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 19:29:58 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 19:32:36 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 19:32:38 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 19:37:59 20201105. User scottalton@gmail.com sign-out.
+successful sign-in event at 19:38:04 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 19:39:45 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 19:39:48 20201105. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 19:55:33 20201105. User scottalton@gmail.com successful sign-in.
+sign-out event at 20:24:53 20201105. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 20:25:01 20201105. User julio18@test.ca unsuccessful login due to bad password.
+successful sign-in event at 20:25:09 20201105. User julio18@test.ca successful sign-in.
+sign-out event at 21:09:43 20201105. User julio18@test.ca sign-out.
+successful sign-in event at 21:09:44 20201105. User scottalton@gmail.com successful sign-in.

@@ -1,0 +1,28 @@
+unsuccessful login due to bad password event at 10:29:03 20201120. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 10:29:05 20201120. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 10:29:13 20201120. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 10:31:35 20201120. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 10:33:38 20201120. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 10:33:43 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:33:46 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:33:54 20201120. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 10:34:00 20201120. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 10:34:03 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:34:30 20201120. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 10:34:38 20201120. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 10:34:40 20201120. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 10:37:40 20201120. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 10:37:47 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:37:49 20201120. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 10:37:58 20201120. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 10:52:02 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:52:11 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:52:12 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:53:13 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:53:15 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:54:45 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:54:49 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:56:05 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:56:12 20201120. User scottalton@gmail.com sign-out.
+successful sign-in event at 10:57:16 20201120. User scottalton@gmail.com successful sign-in.
+sign-out event at 10:57:17 20201120. User scottalton@gmail.com sign-out.

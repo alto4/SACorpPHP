@@ -1,0 +1,45 @@
+successful sign-in event at 17:56:34 20210116. User scottalton@gmail.com successful sign-in.
+sign-out event at 17:56:38 20210116. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 17:56:40 20210116. User unknown attemped sign-in without a valid email.
+successful sign-in event at 17:57:20 20210116. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 17:57:52 20210116. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 17:57:52 20210116. User Test Salesperson successfully created as a salesperson.
+sign-out event at 17:58:10 20210116. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 17:58:15 20210116. User test@test.ca attempted sign-in with disabled account.
+successful sign-in event at 17:58:20 20210116. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 17:58:56 20210116. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 17:59:20 20210116. User scottalton@gmail.com sign-out.
+successful sign-in event at 17:59:24 20210116. User kiwi@gmail.com successful sign-in.
+sign-out event at 17:59:31 20210116. User kiwi@gmail.com sign-out.
+successful sign-in event at 17:59:36 20210116. User kiwi@gmail.com successful sign-in.
+successfully added a call with client #3 to records event at 17:59:47 20210116. User 3 successfully added a call with client #3 to records.
+sign-out event at 17:59:58 20210116. User kiwi@gmail.com sign-out.
+unsuccessful login due to bad password event at 18:00:03 20210116. User scottalton@gmail.com unsuccessful login due to bad password.
+attemped sign-in without a valid email event at 18:13:10 20210116. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 18:13:19 20210116. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 18:13:28 20210116. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 18:14:25 20210116. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 18:14:25 20210116. User Test Salesperson successfully created as a salesperson.
+sign-out event at 18:15:15 20210116. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 18:15:21 20210116. User test2@test.ca attempted sign-in with disabled account.
+successful sign-in event at 18:15:32 20210116. User scottalton@gmail.com successful sign-in.
+sign-out event at 18:15:49 20210116. User scottalton@gmail.com sign-out.
+successful sign-in event at 18:15:54 20210116. User test2@test.ca successful sign-in.
+attemped new client input with the email testclient@gmail.com that already exists in our records. event at 18:16:24 20210116. User User attemped new client input with the email testclient@gmail.com that already exists in our records..
+attemped new client input with the email testclient@gmail.com that already exists in our records. event at 18:16:31 20210116. User User attemped new client input with the email testclient@gmail.com that already exists in our records..
+attemped new client input with the email testclient@gmail.com that already exists in our records. event at 18:16:47 20210116. User User attemped new client input with the email testclient@gmail.com that already exists in our records..
+attemped new client input with the email testclient@gmail.com that already exists in our records. event at 18:16:54 20210116. User User attemped new client input with the email testclient@gmail.com that already exists in our records..
+successfully created as a client event at 18:16:54 20210116. User Test Client successfully created as a client.
+successfully added a call with client #16 to records event at 18:17:18 20210116. User 16 successfully added a call with client #16 to records.
+successfully added a call with client #16 to records event at 18:17:24 20210116. User 16 successfully added a call with client #16 to records.
+sign-out event at 18:17:45 20210116. User test2@test.ca sign-out.
+attemped sign-in without a valid email event at 18:20:13 20210116. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 18:20:19 20210116. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 18:20:27 20210116. User scottalton@gmail.com successful sign-in.
+sign-out event at 18:21:43 20210116. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 18:21:50 20210116. User sal@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 18:22:05 20210116. User scottalton@gmail.com successful sign-in.
+sign-out event at 18:22:16 20210116. User scottalton@gmail.com sign-out.
+successful sign-in event at 18:22:22 20210116. User sal@gmail.com successful sign-in.
+successfully added a call with client #1 to records event at 18:22:59 20210116. User 1 successfully added a call with client #1 to records.
+sign-out event at 18:23:11 20210116. User sal@gmail.com sign-out.

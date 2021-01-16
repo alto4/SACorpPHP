@@ -1,0 +1,102 @@
+successful sign-in event at 13:04:37 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:06:24 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:06:29 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 13:44:03 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 13:44:06 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:44:42 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:44:45 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 13:45:03 20201114. User julio18@test.ca sign-out.
+attemped sign-in without a valid email event at 13:46:25 20201114. User unknown attemped sign-in without a valid email.
+successful sign-in event at 13:48:31 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 13:48:33 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 13:48:37 20201114. User julio18@test.ca successful sign-in.
+successfully added a call with client #34 to records event at 13:49:14 20201114. User 34 successfully added a call with client #34 to records.
+successfully added a call with client #34 to records event at 13:49:20 20201114. User 34 successfully added a call with client #34 to records.
+sign-out event at 14:01:22 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 14:01:23 20201114. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 14:02:14 20201114. User julio18@test.ca successful sign-in.
+successfully added a call with client #66 to records event at 14:02:42 20201114. User 66 successfully added a call with client #66 to records.
+successfully added a call with client #23 to records event at 14:02:47 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 14:03:04 20201114. User 23 successfully added a call with client #23 to records.
+sign-out event at 14:23:31 20201114. User julio18@test.ca sign-out.
+attemped sign-in without a valid email event at 14:23:35 20201114. User unknown attemped sign-in without a valid email.
+successful sign-in event at 14:23:49 20201114. User julio18@test.ca successful sign-in.
+successfully created as a client event at 14:24:58 20201114. User Jelly Doughnut successfully created as a client.
+successfully created as a client event at 14:26:19 20201114. User Caramel Doughnut successfully created as a client.
+sign-out event at 14:27:38 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 14:27:39 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:29:07 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 14:29:18 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 14:33:25 20201114. User julio18@test.ca sign-out.
+attemped sign-in without a valid email event at 14:33:29 20201114. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 14:35:29 20201114. User scottalton@gmail.cm unsuccessful login due to bad password.
+successful sign-in event at 14:35:31 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:35:33 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 14:35:35 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:35:36 20201114. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 14:35:39 20201114. User scottalton@gmai unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 14:36:12 20201114. User scottalton@gmail.co unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 14:36:18 20201114. User scalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 14:36:19 20201114. User scottalton@gmail.com successful sign-in.
+unsuccessful login due to bad password event at 14:36:42 20201114. User acki@gm.ca unsuccessful login due to bad password.
+attemped sign-in without a valid email event at 14:37:11 20201114. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 14:37:28 20201114. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 14:38:02 20201114. User julio18@test.ca unsuccessful login due to bad password.
+sign-out event at 14:38:14 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 14:38:23 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:38:24 20201114. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 14:38:29 20201114. User unknown attemped sign-in without a valid email.
+successful sign-in event at 14:39:09 20201114. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 14:39:20 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 14:58:46 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 14:58:51 20201114. User julio18@test.ca successful sign-in.
+sign-out event at 15:01:39 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 15:01:40 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 15:01:45 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 15:01:48 20201114. User julio18@test.ca successful sign-in.
+successfully added a call with client #25 to records event at 15:04:29 20201114. User 25 successfully added a call with client #25 to records.
+successfully added a call with client #23 to records event at 15:04:32 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #64 to records event at 15:04:40 20201114. User 64 successfully added a call with client #64 to records.
+successfully added a call with client #23 to records event at 15:04:55 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #66 to records event at 15:05:04 20201114. User 66 successfully added a call with client #66 to records.
+successfully added a call with client #66 to records event at 15:06:06 20201114. User 66 successfully added a call with client #66 to records.
+successfully added a call with client #23 to records event at 15:06:11 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:06:37 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:07:14 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:07:31 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:08:17 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:08:19 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:08:35 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:10:43 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #23 to records event at 15:11:20 20201114. User 23 successfully added a call with client #23 to records.
+successfully added a call with client #68 to records event at 15:12:34 20201114. User 68 successfully added a call with client #68 to records.
+sign-out event at 15:21:24 20201114. User julio18@test.ca sign-out.
+successful sign-in event at 15:21:25 20201114. User scottalton@gmail.com successful sign-in.
+successfully created as a client event at 15:37:15 20201114. User Alison Tansley successfully created as a client.
+sign-out event at 15:38:01 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 15:38:04 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 15:38:07 20201114. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 15:38:11 20201114. User unknown attemped sign-in without a valid email.
+successful sign-in event at 15:38:12 20201114. User scottalton@gmail.com successful sign-in.
+successfully created as a salesperson event at 15:57:51 20201114. User Alister Fudge successfully created as a salesperson.
+sign-out event at 16:06:43 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:06:53 20201114. User lee@gmail.com successful sign-in.
+sign-out event at 16:06:57 20201114. User lee@gmail.com sign-out.
+successful sign-in event at 16:07:02 20201114. User scottalton@gmail.com successful sign-in.
+successfully created as a salesperson event at 16:07:27 20201114. User Mick Jones successfully created as a salesperson.
+successfully created as a salesperson event at 16:08:48 20201114. User Test Test successfully created as a salesperson.
+successfully created as a salesperson event at 16:10:19 20201114. User One Moore successfully created as a salesperson.
+sign-out event at 16:20:02 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:20:03 20201114. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 16:20:08 20201114. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 16:20:15 20201114. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 16:20:24 20201114. User scottalton@gmail.com successfully updated their account password.
+successfully updated their account password event at 16:20:26 20201114. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 16:20:27 20201114. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 16:20:31 20201114. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 16:20:32 20201114. User scottalton@gmail.com successful sign-in.
+successfully updated their account password event at 16:20:38 20201114. User scottalton@gmail.com successfully updated their account password.
+sign-out event at 16:20:40 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:20:42 20201114. User scottalton@gmail.com successful sign-in.
+sign-out event at 16:22:19 20201114. User scottalton@gmail.com sign-out.
+successful sign-in event at 16:22:21 20201114. User scottalton@gmail.com successful sign-in.

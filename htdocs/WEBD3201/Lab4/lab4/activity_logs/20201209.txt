@@ -1,0 +1,13 @@
+successful sign-in event at 12:32:52 20201209. User scottalton@gmail.com successful sign-in.
+sign-out event at 12:39:25 20201209. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 12:39:30 20201209. User sal@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 12:39:30 20201209. User sal@gmail.com successful sign-in.
+sign-out event at 12:42:39 20201209. User sal@gmail.com sign-out.
+attempted sign-in with disabled account event at 12:42:50 20201209. User sal@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 12:42:50 20201209. User sal@gmail.com successful sign-in.
+sign-out event at 12:43:30 20201209. User sal@gmail.com sign-out.
+attempted sign-in with disabled account event at 12:43:40 20201209. User sal@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 12:43:40 20201209. User sal@gmail.com successful sign-in.
+successful sign-in event at 21:55:56 20201209. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 21:56:32 20201209. User unknown attemped sign-in without a valid email.
+SECURITY ALERT! unsuccessful request made to reset account with the email event at 21:56:32 20201209. User julio18@test.ca SECURITY ALERT! unsuccessful request made to reset account with the email.

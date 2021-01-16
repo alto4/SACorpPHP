@@ -1,0 +1,57 @@
+successful sign-in event at 21:47:00 20201123. User scottalton@gmail.com successful sign-in.
+sign-out event at 21:59:01 20201123. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 21:59:08 20201123. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 21:59:11 20201123. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 21:59:13 20201123. User scottalton@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 21:59:14 20201123. User scottalton@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 21:59:19 20201123. User scottalton@gmail.com successful sign-in.
+sign-out event at 22:04:56 20201123. User scottalton@gmail.com sign-out.
+successful sign-in event at 22:04:59 20201123. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 22:10:32 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:10:32 20201123. User bleepdeep@gmi.ca successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:10:43 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:10:43 20201123. User sss@g.c successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:11:08 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:11:08 20201123. User s@g.cr successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:13:24 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:13:24 20201123. User sss@f.c successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:13:43 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:13:43 20201123. User sss@f.c successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:14:05 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:14:05 20201123. User sss@f.c successfully sent email to account with the email.
+successfully sent email to account with the email event at 22:14:19 20201123. User scottalton@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 22:14:41 20201123. User scottalton@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 22:22:41 20201123. User scottalton@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:23:09 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:23:39 20201123. User scottalton@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 22:24:00 20201123. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 22:26:26 20201123. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 22:26:26 20201123. User Sam Jones successfully created as a salesperson.
+attemped sign-in without a valid email event at 22:26:37 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 22:26:54 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 22:29:42 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 23:11:35 20201123. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 23:16:49 20201123. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 23:18:50 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 23:20:47 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 23:20:55 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 23:20:55 20201123. User s@g.ca successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:21:24 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 23:21:32 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 23:21:32 20201123. User toolbox@yto.ca successfully sent email to account with the email.
+attemped sign-in without a valid email event at 23:22:19 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 23:22:23 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:22:35 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+attemped sign-in without a valid email event at 23:22:41 20201123. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 23:23:08 20201123. User unknown attemped sign-in without a valid email.
+successfully sent email to account with the email event at 23:23:11 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:28:14 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:29:41 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:30:30 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:30:33 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:31:38 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:32:10 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:32:39 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:33:56 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:34:00 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.
+successfully sent email to account with the email event at 23:34:54 20201123. User scottaltonmusic@gmail.com successfully sent email to account with the email.

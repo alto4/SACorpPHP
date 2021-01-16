@@ -1,0 +1,87 @@
+successful sign-in event at 08:13:00 20201117. User telus@tewl.us successful sign-in.
+successfully updated their account password event at 08:13:15 20201117. User telus@tewl.us successfully updated their account password.
+sign-out event at 08:13:18 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:13:21 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:13:26 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:13:43 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:13:50 20201117. User scottalton@gmail.com successful sign-in.
+successfully created as a client event at 08:21:47 20201117. User Sam Reid successfully created as a client.
+attemped new client input with the email s@scott.ca that already exists in our records. event at 08:26:27 20201117. User User attemped new client input with the email s@scott.ca that already exists in our records..
+successfully created as a client event at 08:26:27 20201117. User Sam Reid successfully created as a client.
+sign-out event at 08:33:48 20201117. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 08:33:50 20201117. User telus@tewl.us unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 08:33:54 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:33:57 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:34:41 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:34:42 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:34:45 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:36:41 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:36:44 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:36:47 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:37:51 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:37:53 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:41:52 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:41:54 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:41:56 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:43:27 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:43:28 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:43:31 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:44:04 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:44:06 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:44:08 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:45:25 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:45:26 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:45:29 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:45:41 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:45:47 20201117. User julio18@test.ca successful sign-in.
+sign-out event at 08:46:30 20201117. User julio18@test.ca sign-out.
+successful sign-in event at 08:46:35 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:47:02 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:47:07 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:47:19 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:47:23 20201117. User julio18@test.ca successful sign-in.
+sign-out event at 08:48:51 20201117. User julio18@test.ca sign-out.
+unsuccessful login due to bad password event at 08:48:52 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:48:55 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:48:59 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:49:07 20201117. User julio18@test.ca successful sign-in.
+sign-out event at 08:49:09 20201117. User julio18@test.ca sign-out.
+unsuccessful login due to bad password event at 08:49:37 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:49:40 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:49:51 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:50:01 20201117. User julio18@test.ca successful sign-in.
+successfully added a call with client #29 to records event at 08:50:29 20201117. User 29 successfully added a call with client #29 to records.
+sign-out event at 08:50:35 20201117. User julio18@test.ca sign-out.
+successful sign-in event at 08:50:38 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:52:37 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:52:38 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:52:41 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:53:48 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:53:51 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:53:56 20201117. User telus@tewl.us sign-out.
+unsuccessful login due to bad password event at 08:54:08 20201117. User telus@tewl.us unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 08:54:11 20201117. User telus@tewl.us unsuccessful login due to bad password.
+successful sign-in event at 08:54:13 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:54:50 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:54:53 20201117. User telus@tewl.us successful sign-in.
+sign-out event at 08:58:49 20201117. User telus@tewl.us sign-out.
+successful sign-in event at 08:58:55 20201117. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:00:41 20201117. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 09:00:47 20201117. User unknown attemped sign-in without a valid email.
+unsuccessful login due to bad password event at 09:00:50 20201117. User telus@tewl.us unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 09:00:51 20201117. User telus@tewl.us unsuccessful login due to bad password.
+attemped sign-in without a valid email event at 09:01:00 20201117. User unknown attemped sign-in without a valid email.
+successful sign-in event at 09:01:06 20201117. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:01:43 20201117. User scottalton@gmail.com sign-out.
+attemped sign-in without a valid email event at 09:01:48 20201117. User unknown attemped sign-in without a valid email.
+successful sign-in event at 09:02:19 20201117. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:02:51 20201117. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:02:56 20201117. User lee@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 09:03:07 20201117. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:03:13 20201117. User unknown attemped sign-in without a valid email.
+attemped sign-in without a valid email event at 09:03:19 20201117. User unknown attemped sign-in without a valid email.
+successful sign-in event at 09:09:25 20201117. User scottalton@gmail.com successful sign-in.
+attemped sign-in without a valid email event at 09:09:48 20201117. User unknown attemped sign-in without a valid email.
+successfully created as a salesperson event at 09:09:48 20201117. User Owen Jones successfully created as a salesperson.
+sign-out event at 09:10:44 20201117. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:10:50 20201117. User owen@gmail.com successful sign-in.

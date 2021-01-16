@@ -1,0 +1,16 @@
+successful sign-in event at 07:40:45 20201106. User scottalton@gmail.com successful sign-in.
+successfully created as a salesperson event at 07:41:53 20201106. User Donny Brasco successfully created as a salesperson.
+sign-out event at 07:42:01 20201106. User scottalton@gmail.com sign-out.
+successful sign-in event at 07:42:08 20201106. User julio18@test.ca successful sign-in.
+successfully added a call with client #36 to records event at 07:42:59 20201106. User 36 successfully added a call with client #36 to records.
+sign-out event at 08:21:24 20201106. User julio18@test.ca sign-out.
+successful sign-in event at 08:21:49 20201106. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:40:40 20201106. User scottalton@gmail.com sign-out.
+unsuccessful login due to bad password event at 08:40:44 20201106. User julio18@test.ca unsuccessful login due to bad password.
+successful sign-in event at 08:40:56 20201106. User julio18@test.ca successful sign-in.
+sign-out event at 09:15:55 20201106. User julio18@test.ca sign-out.
+successful sign-in event at 09:16:01 20201106. User julio18@test.ca successful sign-in.
+sign-out event at 09:16:06 20201106. User julio18@test.ca sign-out.
+successful sign-in event at 09:16:08 20201106. User scottalton@gmail.com successful sign-in.
+sign-out event at 09:16:17 20201106. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:16:23 20201106. User julio18@test.ca successful sign-in.

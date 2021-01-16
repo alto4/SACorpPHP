@@ -1,0 +1,24 @@
+successfully sent reset email to account event at 07:14:29 20201215. User scottalton@gmail.com successfully sent reset email to account.
+unsuccessful login due to bad password event at 07:15:07 20201215. User shanejones@gmail.com unsuccessful login due to bad password.
+unsuccessful login due to bad password event at 07:15:13 20201215. User shanejones@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 07:15:18 20201215. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:23:55 20201215. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 08:23:58 20201215. User leeyeugn@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 08:24:06 20201215. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:24:13 20201215. User scottalton@gmail.com sign-out.
+attempted sign-in with disabled account event at 08:24:16 20201215. User leeyeugn@gmail.com attempted sign-in with disabled account.
+attempted sign-in with disabled account event at 08:24:21 20201215. User leeyeugn@gmail.com attempted sign-in with disabled account.
+successful sign-in event at 08:24:32 20201215. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:25:03 20201215. User scottalton@gmail.com sign-out.
+successful sign-in event at 08:25:07 20201215. User leeyeugn@gmail.com successful sign-in.
+successfully updated their account password event at 08:25:22 20201215. User leeyeugn@gmail.com successfully updated their account password.
+sign-out event at 08:25:25 20201215. User leeyeugn@gmail.com sign-out.
+unsuccessful login due to bad password event at 08:25:29 20201215. User leeyeugn@gmail.com unsuccessful login due to bad password.
+successful sign-in event at 08:25:32 20201215. User leeyeugn@gmail.com successful sign-in.
+successfully updated their account password event at 08:25:38 20201215. User leeyeugn@gmail.com successfully updated their account password.
+sign-out event at 08:26:02 20201215. User leeyeugn@gmail.com sign-out.
+successful sign-in event at 08:26:09 20201215. User leeyeugn@gmail.com successful sign-in.
+successful sign-in event at 08:26:51 20201215. User scottalton@gmail.com successful sign-in.
+sign-out event at 08:32:10 20201215. User scottalton@gmail.com sign-out.
+successful sign-in event at 09:54:37 20201215. User scottalton@gmail.com successful sign-in.
+successful sign-in event at 22:52:31 20201215. User scottalton@gmail.com successful sign-in.
